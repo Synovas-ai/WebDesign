@@ -112,6 +112,19 @@
     .sidebar-cta-img { width: 100%; height: 140px; object-fit: cover; border-radius: 12px 12px 0 0; background: var(--color-bg-section); margin: -24px -24px 20px; width: calc(100% + 48px); border-radius: 10px 10px 0 0; }
 
     .newsletter-section { max-width: var(--max-w); margin: 0 auto 88px; padding: 0 48px; }
+
+  @media (max-width: 768px) {
+    .post-layout { grid-template-columns: 1fr; padding: 32px 20px 56px; gap: 0; }
+    .post-h1 { font-size: 36px; }
+    .post-subtitle { font-size: 17px; }
+    .post-hero-img { height: 220px; border-radius: 14px; }
+    .post-body p { font-size: 17px; }
+    .post-body h2 { font-size: 28px; margin-top: 44px; }
+    .post-body h3 { font-size: 21px; }
+    .blog-sidebar { position: static; top: auto; margin-top: 48px; }
+    .author-row { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .newsletter-section { padding: 0 20px; margin-bottom: 56px; }
+  }
   </style>
 </head>
 <body>

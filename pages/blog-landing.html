@@ -89,6 +89,22 @@
     .view-all-wrap { text-align: center; margin-top: 48px; }
 
     .newsletter-section { max-width: var(--max-w); margin: 0 auto 88px; padding: 0 48px; }
+
+  @media (max-width: 768px) {
+    .blog-hero { grid-template-columns: 1fr; min-height: auto; }
+    .blog-hero-right { display: none; }
+    .blog-hero-left { padding: 48px 20px; }
+    .blog-hero-left h1 { font-size: 36px; }
+    .blog-hero-left .hero-body { font-size: 16px; }
+    .filter-bar { padding: 20px; }
+    .blog-main { padding: 28px 20px; }
+    .featured-row { grid-template-columns: 1fr; }
+    .featured-inner { grid-template-columns: 1fr; }
+    .featured-img { min-height: 180px; }
+    .sidebar { position: static; top: auto; }
+    .newsletter-section { padding: 0 20px; margin-bottom: 56px; }
+    .view-all-wrap .btn { width: 100%; }
+  }
   </style>
 </head>
 <body>

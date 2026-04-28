@@ -232,6 +232,56 @@
       background: #e8f0e9;
       border-color: #2c5f3a;
     }
+
+    /* ── View toggle ── */
+    .view-toggle {
+      display: flex;
+      gap: 4px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 3px;
+      flex-shrink: 0;
+    }
+    .view-btn {
+      height: 30px;
+      padding: 0 12px;
+      border-radius: 6px;
+      border: none;
+      background: transparent;
+      color: rgba(255,255,255,0.55);
+      font-family: "Inter", system-ui, sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: background 0.15s, color 0.15s;
+      white-space: nowrap;
+    }
+    .view-btn.active {
+      background: #fff;
+      color: #1b2c20;
+    }
+
+    /* ── Mobile preview mode ── */
+    /* Phone preview: iframe at 390px, centered, with subtle device border */
+    body.mobile-view .preview-link {
+      height: 400px !important;
+      background: #d4dbd5;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 20px;
+    }
+    body.mobile-view .iframe-scaler {
+      width: 390px !important;
+      height: 844px !important;
+      transform: scale(0.43) !important;
+      transform-origin: top center !important;
+      border-radius: 10px;
+      box-shadow: 0 0 0 8px #2a2a2a, 0 0 0 10px #1a1a1a;
+    }
   </style>
 </head>
 <body>
@@ -243,6 +293,10 @@
     FindInsureWise
   </div>
   <div class="topbar-meta"><span>7 pages</span><span class="sep"> &nbsp;·&nbsp; HTML + CSS</span></div>
+  <div class="view-toggle">
+    <button class="view-btn active" data-view="desktop">🖥 Desktop</button>
+    <button class="view-btn" data-view="mobile">📱 Mobile</button>
+  </div>
 </header>
 
 <!-- ── Grid ── -->
@@ -344,5 +398,18 @@
   </div>
 </main>
 
+<script>
+  document.querySelectorAll('.view-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      if (btn.dataset.view === 'mobile') {
+        document.body.classList.add('mobile-view');
+      } else {
+        document.body.classList.remove('mobile-view');
+      }
+    });
+  });
+</script>
 </body>
 </html>

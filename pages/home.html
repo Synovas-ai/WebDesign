@@ -130,6 +130,24 @@
     .final-cta-form .form-input { background: rgba(255,255,255,0.95); }
     .final-cta-form .form-input::placeholder { color: var(--color-text-3); }
     .final-cta-form .secure-note { color: rgba(255,255,255,0.5); }
+
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-right { display: none; }
+    .hero-left { padding: 52px 20px 44px; }
+    .hero-h1 { font-size: 40px; }
+    .hero-body { font-size: 16px; }
+    .hero-cta .btn { width: 100%; justify-content: center; }
+    .process-cards { grid-template-columns: 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .faq-wrap { grid-template-columns: 1fr; gap: 0; }
+    .faq-wrap > div:last-child { display: none; }
+    .final-cta-photo { display: none; }
+    .final-cta-inner { grid-template-columns: 1fr; gap: 32px; padding: 56px 20px; }
+    .final-cta-copy h2 { font-size: 32px; }
+    .final-cta-form { background: rgba(255,255,255,0.08); }
+    .final-cta-form .btn { width: 100%; }
+  }
   </style>
 </head>
 <body>

@@ -21,82 +21,144 @@
     .topbar {
       background: #1b2c20;
       color: #fff;
-      padding: 0 48px;
-      height: 64px;
+      padding: 0 20px;
+      height: 56px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       position: sticky;
       top: 0;
       z-index: 100;
+      gap: 12px;
     }
     .topbar-brand {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       font-weight: 700;
-      font-size: 16px;
+      font-size: 15px;
+      flex-shrink: 0;
     }
     .topbar-icon {
-      width: 30px; height: 30px;
+      width: 28px; height: 28px;
       background: #cf9010;
       border-radius: 6px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 14px;
+      font-size: 13px;
+      flex-shrink: 0;
     }
     .topbar-meta {
-      font-size: 13px;
+      font-size: 12px;
       color: rgba(255,255,255,0.45);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
-    .topbar-meta span {
-      color: rgba(255,255,255,0.7);
+    .topbar-meta span { color: rgba(255,255,255,0.7); }
+    .topbar-meta .sep { display: none; }
+
+    @media (min-width: 480px) {
+      .topbar-meta .sep { display: inline; }
+    }
+
+    @media (min-width: 640px) {
+      .topbar { padding: 0 32px; height: 60px; }
+      .topbar-brand { font-size: 16px; gap: 10px; }
+      .topbar-icon { width: 30px; height: 30px; font-size: 14px; }
+      .topbar-meta { font-size: 13px; }
+    }
+
+    @media (min-width: 1024px) {
+      .topbar { padding: 0 48px; height: 64px; }
     }
 
     /* ── Page content ── */
     .content {
       max-width: 1280px;
       margin: 0 auto;
-      padding: 56px 48px 88px;
+      padding: 32px 16px 56px;
     }
+    @media (min-width: 480px)  { .content { padding: 36px 20px 64px; } }
+    @media (min-width: 640px)  { .content { padding: 44px 32px 72px; } }
+    @media (min-width: 1024px) { .content { padding: 56px 48px 88px; } }
+
     .section-label {
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: #7a8a7a;
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
 
-    /* ── Card grid ── */
+    /* ── Card grid — mobile-first ── */
     .grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
+      grid-template-columns: 1fr;
+      gap: 16px;
     }
+    @media (min-width: 540px)  { .grid { grid-template-columns: repeat(2, 1fr); gap: 20px; } }
+    @media (min-width: 1024px) { .grid { grid-template-columns: repeat(3, 1fr); gap: 28px; } }
 
     /* ── Page card ── */
     .page-card {
       background: #fff;
-      border-radius: 16px;
+      border-radius: 14px;
       overflow: hidden;
       border: 1px solid #e2e6e2;
       box-shadow: 0 2px 12px rgba(0,0,0,0.05);
       transition: box-shadow 0.2s, transform 0.2s;
     }
+    @media (min-width: 640px) { .page-card { border-radius: 16px; } }
     .page-card:hover {
       box-shadow: 0 8px 28px rgba(0,0,0,0.10);
       transform: translateY(-2px);
     }
 
-    /* ── iframe preview ── */
+    /* ── iframe preview ──
+       iframe is fixed at 1440×960; CSS transform scales it down to fit
+       wrapper clips to the scaled height and uses overflow:hidden.
+       Scale values are tuned per breakpoint to fill card width.
+    ── */
     .preview-link {
       display: block;
       position: relative;
       overflow: hidden;
       background: #e8eceb;
-      height: 240px;
+      /* mobile: ~(375-32)px card = 343px  →  scale ≈ 343/1440 = 0.238 → height = 960×0.238 = 228px */
+      height: 228px;
       cursor: pointer;
     }
+    .iframe-scaler {
+      width: 1440px;
+      height: 960px;
+      transform: scale(0.238);
+      transform-origin: top left;
+      pointer-events: none;
+    }
+
+    /* 2-col tablet: ~(540-40-20)/2 = 240px → scale 240/1440 = 0.167 → height 160px
+       but at 768px: ~(768-64-20)/2 = 342px → scale 0.238 → height 228px
+       Use a middle value that works across the range */
+    @media (min-width: 540px) {
+      .preview-link  { height: 190px; }
+      .iframe-scaler { transform: scale(0.198); }
+    }
+    @media (min-width: 700px) {
+      .preview-link  { height: 220px; }
+      .iframe-scaler { transform: scale(0.229); }
+    }
+
+    /* 3-col desktop: ~(1280-96-56)/3 = 376px → scale 376/1440 = 0.261 → height 251px */
+    @media (min-width: 1024px) {
+      .preview-link  { height: 251px; }
+      .iframe-scaler { transform: scale(0.261); }
+    }
+    @media (min-width: 1200px) {
+      .preview-link  { height: 260px; }
+      .iframe-scaler { transform: scale(0.271); }
+    }
+
     .preview-link::after {
       content: 'Open →';
       position: absolute;
@@ -115,23 +177,18 @@
       opacity: 1;
       background: rgba(27, 44, 32, 0.55);
     }
-    .iframe-scaler {
-      width: 1440px;
-      height: 960px;
-      transform: scale(0.25);
-      transform-origin: top left;
-      pointer-events: none;
-    }
 
     /* ── Card footer ── */
     .card-footer {
-      padding: 18px 20px 20px;
+      padding: 14px 16px 16px;
       border-top: 1px solid #f0f2f0;
     }
+    @media (min-width: 640px) { .card-footer { padding: 18px 20px 20px; } }
+
     .card-tags {
       display: flex;
       gap: 6px;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       flex-wrap: wrap;
     }
     .tag {
@@ -146,16 +203,18 @@
     .tag-system { background: #fef6e7; color: #b07a08; }
 
     .card-title {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 700;
       color: #1a1d1a;
       margin-bottom: 4px;
     }
+    @media (min-width: 640px) { .card-title { font-size: 16px; } }
+
     .card-desc {
       font-size: 13px;
       color: #6b7a6a;
       line-height: 1.55;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
     .card-link {
       display: inline-flex;
@@ -183,7 +242,7 @@
     <div class="topbar-icon">🛡</div>
     FindInsureWise
   </div>
-  <div class="topbar-meta">Page Library &nbsp;·&nbsp; <span>7 pages</span> &nbsp;·&nbsp; HTML + CSS</div>
+  <div class="topbar-meta"><span>7 pages</span><span class="sep"> &nbsp;·&nbsp; HTML + CSS</span></div>
 </header>
 
 <!-- ── Grid ── -->
@@ -194,7 +253,7 @@
     <!-- Home -->
     <div class="page-card">
       <a class="preview-link" href="pages/home.html" target="_blank">
-        <iframe class="iframe-scaler" src="pages/home.html" scrolling="no" tabindex="-1"></iframe>
+        <iframe class="iframe-scaler" loading="lazy" src="pages/home.html" scrolling="no" tabindex="-1"></iframe>
       </a>
       <div class="card-footer">
         <div class="card-tags"><span class="tag tag-page">Page</span></div>
@@ -207,7 +266,7 @@
     <!-- Buying Guides -->
     <div class="page-card">
       <a class="preview-link" href="pages/buying-guides.html" target="_blank">
-        <iframe class="iframe-scaler" src="pages/buying-guides.html" scrolling="no" tabindex="-1"></iframe>
+        <iframe class="iframe-scaler" loading="lazy" src="pages/buying-guides.html" scrolling="no" tabindex="-1"></iframe>
       </a>
       <div class="card-footer">
         <div class="card-tags"><span class="tag tag-page">Page</span></div>
@@ -220,7 +279,7 @@
     <!-- FAQ -->
     <div class="page-card">
       <a class="preview-link" href="pages/faq.html" target="_blank">
-        <iframe class="iframe-scaler" src="pages/faq.html" scrolling="no" tabindex="-1"></iframe>
+        <iframe class="iframe-scaler" loading="lazy" src="pages/faq.html" scrolling="no" tabindex="-1"></iframe>
       </a>
       <div class="card-footer">
         <div class="card-tags"><span class="tag tag-page">Page</span></div>
@@ -233,7 +292,7 @@
     <!-- Contact -->
     <div class="page-card">
       <a class="preview-link" href="pages/contact.html" target="_blank">
-        <iframe class="iframe-scaler" src="pages/contact.html" scrolling="no" tabindex="-1"></iframe>
+        <iframe class="iframe-scaler" loading="lazy" src="pages/contact.html" scrolling="no" tabindex="-1"></iframe>
       </a>
       <div class="card-footer">
         <div class="card-tags"><span class="tag tag-page">Page</span></div>
@@ -246,7 +305,7 @@
     <!-- Blog Landing -->
     <div class="page-card">
       <a class="preview-link" href="pages/blog-landing.html" target="_blank">
-        <iframe class="iframe-scaler" src="pages/blog-landing.html" scrolling="no" tabindex="-1"></iframe>
+        <iframe class="iframe-scaler" loading="lazy" src="pages/blog-landing.html" scrolling="no" tabindex="-1"></iframe>
       </a>
       <div class="card-footer">
         <div class="card-tags"><span class="tag tag-page">Page</span></div>
@@ -259,7 +318,7 @@
     <!-- Blog Post -->
     <div class="page-card">
       <a class="preview-link" href="pages/blog-post.html" target="_blank">
-        <iframe class="iframe-scaler" src="pages/blog-post.html" scrolling="no" tabindex="-1"></iframe>
+        <iframe class="iframe-scaler" loading="lazy" src="pages/blog-post.html" scrolling="no" tabindex="-1"></iframe>
       </a>
       <div class="card-footer">
         <div class="card-tags"><span class="tag tag-page">Page</span></div>
@@ -272,7 +331,7 @@
     <!-- Design System -->
     <div class="page-card">
       <a class="preview-link" href="design-system/design-system.html" target="_blank">
-        <iframe class="iframe-scaler" src="design-system/design-system.html" scrolling="no" tabindex="-1"></iframe>
+        <iframe class="iframe-scaler" loading="lazy" src="design-system/design-system.html" scrolling="no" tabindex="-1"></iframe>
       </a>
       <div class="card-footer">
         <div class="card-tags"><span class="tag tag-system">Design System</span></div>

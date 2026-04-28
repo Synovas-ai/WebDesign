@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FindInsureWise — Term Life Insurance with Living Benefits</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: "Inter", system-ui, sans-serif; background: #fff; color: #1b2c20; -webkit-font-smoothing: antialiased; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+    /* ── Tokens ── */
+    :root {
+      --green:      #1b2c20;
+      --green-mid:  #2c5f3a;
+      --green-eye:  #3d6e42;
+      --gold:       #cf9010;
+      --gold-hover: #b07a08;
+      --gray-bg:    #f5f7f4;
+      --text-2:     #5a6b58;
+      --text-3:     #8a9b88;
+      --border:     #dde5de;
+      --serif:      "Playfair Display", Georgia, serif;
+    }
+
+    /* ── Header ── */
+    .m-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: 64px;
+      background: #fff;
+      border-bottom: 1px solid #e8ece8;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 18px;
+      gap: 10px;
+    }
+    .m-logo {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-family: var(--serif);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--green);
+    }
+    .m-logo-icon {
+      width: 34px;
+      height: 34px;
+      border: 2px solid var(--gold);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+    .m-header-cta {
+      flex-shrink: 0;
+      background: var(--gold);
+      color: #fff;
+      font-weight: 700;
+      font-size: 14px;
+      border-radius: 999px;
+      height: 40px;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+    }
+    .m-hamburger {
+      width: 34px;
+      height: 34px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      flex-shrink: 0;
+    }
+    .m-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--green);
+      border-radius: 2px;
+    }
+
+    /* ── Hero ── */
+    .m-hero {
+      position: relative;
+      min-height: 88vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+    }
+    .m-hero-bg {
+      position: absolute;
+      inset: 0;
+    }
+    .m-hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+    .m-hero-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(27,44,32,0) 0%,
+        rgba(27,44,32,0.15) 30%,
+        rgba(27,44,32,0.72) 58%,
+        rgba(27,44,32,0.97) 80%,
+        #1b2c20 100%
+      );
+    }
+    .m-hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 0 22px 36px;
+    }
+    .m-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #7dc67f;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .m-hero-h1 {
+      font-family: var(--serif);
+      font-size: 42px;
+      line-height: 1.06;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .m-hero-h1 .gold { color: var(--gold); }
+    .m-hero-body {
+      font-size: 16px;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.78);
+      margin-bottom: 24px;
+    }
+    .m-btn-gold {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      height: 56px;
+      background: var(--gold);
+      color: #fff;
+      font-weight: 700;
+      font-size: 17px;
+      border-radius: 14px;
+      margin-bottom: 16px;
+    }
+    .m-secure {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 20px;
+    }
+    .m-trust-row {
+      display: flex;
+      align-items: center;
+      gap: 0;
+    }
+    .m-trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 15px;
+      color: rgba(255,255,255,0.85);
+      font-weight: 500;
+    }
+    .m-trust-check {
+      width: 22px;
+      height: 22px;
+      border: 1.5px solid rgba(255,255,255,0.5);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      color: #7dc67f;
+    }
+    .m-trust-divider {
+      width: 1px;
+      height: 20px;
+      background: rgba(255,255,255,0.25);
+      margin: 0 18px;
+    }
+
+    /* ── Section wrapper ── */
+    .m-section {
+      padding: 52px 20px;
+    }
+    .m-section.alt { background: var(--gray-bg); }
+    .m-section-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      color: var(--green-eye);
+      text-align: center;
+      display: block;
+      margin-bottom: 12px;
+    }
+    .m-section-h2 {
+      font-family: var(--serif);
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--green);
+      line-height: 1.12;
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .m-section-h2.left { text-align: left; }
+    .gold-text { color: var(--gold); }
+
+    /* ── Horizontal benefit card ── */
+    .m-benefit-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+    .m-benefit-card:last-child { margin-bottom: 0; }
+    .m-benefit-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: #f0f3ef;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 26px;
+      color: var(--green-mid);
+    }
+    .m-benefit-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 6px;
+    }
+    .m-benefit-body {
+      font-size: 14px;
+      color: var(--text-2);
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+    .m-learn-more {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--green-mid);
+    }
+
+    /* ── Comparison table ── */
+    .m-compare-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+    .m-compare-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .m-compare-table th {
+      padding: 14px 10px;
+      font-size: 13px;
+      font-weight: 700;
+      text-align: center;
+      line-height: 1.3;
+    }
+    .m-compare-table th.col-hi {
+      background: var(--green);
+      color: #fff;
+    }
+    .m-compare-table th.col-reg {
+      background: #fff;
+      color: var(--green);
+      border-bottom: 1px solid var(--border);
+    }
+    .m-compare-table th:first-child {
+      text-align: left;
+      width: 42%;
+      font-weight: 400;
+      color: transparent;
+      background: transparent;
+    }
+    .m-compare-table td {
+      padding: 12px 10px;
+      font-size: 13px;
+      color: var(--text-2);
+      border-bottom: 1px solid #f0f3f0;
+      vertical-align: middle;
+      line-height: 1.4;
+    }
+    .m-compare-table tr:last-child td { border-bottom: none; }
+    .m-compare-table td:first-child { color: var(--green); font-size: 13px; }
+    .m-compare-table td.center { text-align: center; }
+    .m-check {
+      width: 26px;
+      height: 26px;
+      background: var(--green);
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 12px;
+    }
+    .m-dash { color: #b0bfb0; font-size: 18px; }
+    .m-btn-gold-full {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      height: 54px;
+      background: var(--gold);
+      color: #fff;
+      font-weight: 700;
+      font-size: 16px;
+      border-radius: 14px;
+    }
+
+    /* ── Step card ── */
+    .m-step-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+    .m-step-card:last-child { margin-bottom: 0; }
+    .m-step-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: #f0f3ef;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 26px;
+      color: var(--green-mid);
+    }
+    .m-step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--green);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 6px;
+    }
+    .m-step-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 4px;
+    }
+    .m-step-body { font-size: 14px; color: var(--text-2); line-height: 1.6; }
+
+    /* ── Review card ── */
+    .m-review-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 26px 22px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      margin-bottom: 16px;
+    }
+    .m-stars { color: var(--gold); font-size: 22px; letter-spacing: 3px; margin-bottom: 14px; }
+    .m-review-quote {
+      font-size: 19px;
+      line-height: 1.65;
+      color: var(--green);
+      margin-bottom: 20px;
+    }
+    .m-review-author { display: flex; align-items: center; gap: 14px; }
+    .m-author-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #d8e6da;
+      border: 2px solid #c0d8c4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--green-mid);
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+    .m-author-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .m-author-name { font-size: 16px; font-weight: 700; color: var(--green); }
+    .m-author-role { font-size: 13px; color: var(--text-2); }
+
+    /* peek card */
+    .m-review-peek {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 22px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+    .m-peek-text { flex: 1; }
+    .m-peek-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: #e0d8cc;
+      border: 2px solid #cdc4b4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: 700;
+      color: #7a6a50;
+      flex-shrink: 0;
+    }
+    .m-peek-quote { font-size: 15px; color: var(--green); line-height: 1.6; }
+
+    /* dots */
+    .m-dots { display: flex; gap: 8px; justify-content: center; margin: 14px 0; }
+    .m-dot { width: 8px; height: 8px; border-radius: 50%; background: #d0dbd2; }
+    .m-dot.active { background: var(--green); }
+
+    /* ── Carrier card ── */
+    .m-carrier-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px;
+    }
+    .m-carrier-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px 12px;
+      margin-bottom: 10px;
+    }
+    .m-carrier-logo {
+      font-family: var(--serif);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 10px 6px;
+      border: 1px solid #e8ece8;
+      border-radius: 8px;
+      line-height: 1.3;
+    }
+    .m-carrier-more {
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-3);
+      padding-top: 6px;
+    }
+
+    /* ── FAQ rows ── */
+    .m-faq-list { display: flex; flex-direction: column; margin-bottom: 20px; }
+    .m-faq-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      border-bottom: 1px solid #edf0ed;
+      font-size: 15px;
+      color: var(--green);
+      font-weight: 500;
+      gap: 12px;
+    }
+    .m-faq-row:first-child { border-top: 1px solid #edf0ed; }
+    .m-faq-plus {
+      width: 28px;
+      height: 28px;
+      border: 1.5px solid var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 300;
+      color: var(--text-2);
+      flex-shrink: 0;
+    }
+
+    /* help card */
+    .m-help-card {
+      background: var(--gray-bg);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .m-help-icon {
+      width: 48px;
+      height: 48px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    .m-help-title { font-size: 16px; font-weight: 700; color: var(--green); margin-bottom: 4px; }
+    .m-help-body  { font-size: 14px; color: var(--text-2); line-height: 1.6; margin-bottom: 14px; }
+    .m-btn-action {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 46px;
+      background: var(--green-mid);
+      color: #fff;
+      font-weight: 700;
+      font-size: 15px;
+      border-radius: 12px;
+    }
+
+    /* ── Final CTA ── */
+    .m-final-cta {
+      position: relative;
+      overflow: hidden;
+      background: var(--green);
+      padding: 0 22px 40px;
+    }
+    .m-cta-bg {
+      position: absolute;
+      inset: 0;
+    }
+    .m-cta-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      opacity: 0.35;
+    }
+    .m-cta-content {
+      position: relative;
+      z-index: 1;
+      padding-top: 52px;
+    }
+    .m-cta-h2 {
+      font-family: var(--serif);
+      font-size: 30px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.12;
+      margin-bottom: 10px;
+    }
+    .m-cta-body { font-size: 15px; color: rgba(255,255,255,0.65); margin-bottom: 28px; }
+    .m-form-row { display: flex; gap: 10px; margin-bottom: 10px; }
+    .m-input {
+      flex: 1;
+      height: 52px;
+      background: rgba(255,255,255,0.94);
+      border: none;
+      border-radius: 10px;
+      padding: 0 16px;
+      font-size: 15px;
+      font-family: "Inter", system-ui, sans-serif;
+      color: var(--green);
+      outline: none;
+    }
+    .m-input::placeholder { color: #8a9b8a; }
+    .m-input.full { width: 100%; display: block; margin-bottom: 10px; }
+    .m-cta-secure {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      margin-top: 14px;
+    }
+
+    /* ── Footer ── */
+    .m-footer {
+      background: #101a12;
+      padding: 32px 22px 40px;
+    }
+    .m-footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--serif);
+      font-size: 17px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+    .m-footer-logo-icon {
+      width: 30px;
+      height: 30px;
+      border: 2px solid var(--gold);
+      border-radius: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      color: var(--gold);
+    }
+    .m-footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 22px;
+      margin-bottom: 24px;
+    }
+    .m-footer-links a {
+      font-size: 14px;
+      color: rgba(255,255,255,0.65);
+    }
+    .m-footer-bottom {
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 13px;
+      color: rgba(255,255,255,0.3);
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Header ── -->
+<header class="m-header">
+  <div class="m-logo">
+    <div class="m-logo-icon">🛡</div>
+    FindInsureWise
+  </div>
+  <a href="#quote" class="m-header-cta">Get My Free Quote</a>
+  <button class="m-hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- ── Hero ── -->
+<section class="m-hero">
+  <div class="m-hero-bg">
+    <img src="../ux-mockup/home-page/assets/home-hero-desktop.png" alt="Happy family at home" />
+    <div class="m-hero-gradient"></div>
+  </div>
+  <div class="m-hero-content">
+    <span class="m-eyebrow">Life Insurance with Living Benefits</span>
+    <h1 class="m-hero-h1">
+      Term Life Insurance<br />
+      That Can Help<br />
+      <span class="gold">While You're Alive</span>
+    </h1>
+    <p class="m-hero-body">Get affordable term life coverage that protects your family — with living benefits that may provide cash access after a qualifying illness.</p>
+    <a href="#quote" class="m-btn-gold">Get My Free Quote →</a>
+    <div class="m-secure">🔒 Your information is safe and secure.</div>
+    <div class="m-trust-row">
+      <div class="m-trust-item">
+        <div class="m-trust-check">✓</div>
+        No obligation
+      </div>
+      <div class="m-trust-divider"></div>
+      <div class="m-trust-item">
+        <div class="m-trust-check">✓</div>
+        Licensed experts
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Living Benefits ── -->
+<section class="m-section">
+  <h2 class="m-section-h2">Life doesn't stop when<br />illness strikes.<br />Your coverage shouldn't either.</h2>
+
+  <div class="m-benefit-card">
+    <div class="m-benefit-icon">💓</div>
+    <div>
+      <div class="m-benefit-title">Critical Illness</div>
+      <div class="m-benefit-body">Access a portion of your death benefit if you're diagnosed with a covered critical illness.</div>
+      <a href="buying-guides.html" class="m-learn-more">Learn more →</a>
+    </div>
+  </div>
+
+  <div class="m-benefit-card">
+    <div class="m-benefit-icon">♿</div>
+    <div>
+      <div class="m-benefit-title">Chronic Illness</div>
+      <div class="m-benefit-body">Get support if you're unable to perform 2+ daily activities due to a chronic condition.</div>
+      <a href="buying-guides.html" class="m-learn-more">Learn more →</a>
+    </div>
+  </div>
+
+  <div class="m-benefit-card">
+    <div class="m-benefit-icon">⏳</div>
+    <div>
+      <div class="m-benefit-title">Terminal Illness</div>
+      <div class="m-benefit-body">Receive early benefits if you are diagnosed with a terminal illness with limited time.</div>
+      <a href="buying-guides.html" class="m-learn-more">Learn more →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Comparison ── -->
+<section class="m-section alt">
+  <span class="m-section-eyebrow">The Clear Difference</span>
+  <h2 class="m-section-h2">Most term life pays later.<br /><span class="gold-text">Living benefits</span> may help<br />when life happens.</h2>
+
+  <div class="m-compare-card">
+    <table class="m-compare-table">
+      <thead>
+        <tr>
+          <th></th>
+          <th class="col-hi">Term Life with<br />Living Benefits</th>
+          <th class="col-reg">Traditional<br />Term Life</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Pays your family if you pass away</td>
+          <td class="center"><span class="m-check">✓</span></td>
+          <td class="center"><span class="m-check">✓</span></td>
+        </tr>
+        <tr>
+          <td>May provide early access after critical illness</td>
+          <td class="center"><span class="m-check">✓</span></td>
+          <td class="center"><span class="m-dash">—</span></td>
+        </tr>
+        <tr>
+          <td>May help if chronic illness affects daily living</td>
+          <td class="center"><span class="m-check">✓</span></td>
+          <td class="center"><span class="m-dash">—</span></td>
+        </tr>
+        <tr>
+          <td>Helps during life, not only after death</td>
+          <td class="center"><span class="m-check">✓</span></td>
+          <td class="center"><span class="m-dash">—</span></td>
+        </tr>
+        <tr>
+          <td>Usually no extra cost on selected policies</td>
+          <td class="center"><span class="m-check">✓</span></td>
+          <td class="center"><span class="m-dash">—</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <a href="#quote" class="m-btn-gold-full">Compare My Options →</a>
+</section>
+
+<!-- ── Process ── -->
+<section class="m-section">
+  <span class="m-section-eyebrow">Simple Process</span>
+  <h2 class="m-section-h2">Getting covered is<br />easier than you think.</h2>
+
+  <div class="m-step-card">
+    <div class="m-step-icon">📋</div>
+    <div>
+      <div class="m-step-num">1</div>
+      <div class="m-step-title">Tell us about yourself</div>
+      <div class="m-step-body">Answer a few simple questions about you and your family.</div>
+    </div>
+  </div>
+
+  <div class="m-step-card">
+    <div class="m-step-icon">🔍</div>
+    <div>
+      <div class="m-step-num">2</div>
+      <div class="m-step-title">We find your options</div>
+      <div class="m-step-body">We compare top-rated carriers to find the best fit for you.</div>
+    </div>
+  </div>
+
+  <div class="m-step-card">
+    <div class="m-step-icon">🛡</div>
+    <div>
+      <div class="m-step-num">3</div>
+      <div class="m-step-title">You decide</div>
+      <div class="m-step-body">Choose your coverage and get protected — fast and stress-free.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Reviews ── -->
+<section class="m-section alt">
+  <span class="m-section-eyebrow">Real People. Real Stories</span>
+  <h2 class="m-section-h2">Families protected<br />with confidence.</h2>
+
+  <!-- Primary review card -->
+  <div class="m-review-card">
+    <div class="m-stars">★★★★★</div>
+    <p class="m-review-quote">"The team explained living benefits so clearly. I finally feel like our policy fits our real life."</p>
+    <div class="m-review-author">
+      <div class="m-author-avatar">D</div>
+      <div>
+        <div class="m-author-name">David R.</div>
+        <div class="m-author-role">Small business owner</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Carousel dots -->
+  <div class="m-dots">
+    <div class="m-dot active"></div>
+    <div class="m-dot"></div>
+    <div class="m-dot"></div>
+  </div>
+
+  <!-- Peek card -->
+  <div class="m-review-peek">
+    <div class="m-peek-text">
+      <div class="m-stars" style="font-size:16px; letter-spacing:2px; margin-bottom:10px;">★★★★★</div>
+      <p class="m-peek-quote">"I was overwhelmed before, but FindInsureWise made everything easy and stress-free."</p>
+    </div>
+    <div class="m-peek-avatar">A</div>
+  </div>
+</section>
+
+<!-- ── Carriers ── -->
+<section class="m-section" style="padding-top: 36px; padding-bottom: 36px;">
+  <span class="m-section-eyebrow">We Work with Trusted Carriers</span>
+  <div class="m-carrier-card">
+    <div class="m-carrier-grid">
+      <div class="m-carrier-logo">Prudential</div>
+      <div class="m-carrier-logo">Lincoln Financial</div>
+      <div class="m-carrier-logo">Pacific Life</div>
+      <div class="m-carrier-logo">Protective</div>
+      <div class="m-carrier-logo" style="grid-column: 1 / -1;">Transamerica</div>
+    </div>
+    <div class="m-carrier-more">and more...</div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section class="m-section alt">
+  <span class="m-section-eyebrow">Common Questions</span>
+  <h2 class="m-section-h2">Frequently Asked<br />Questions</h2>
+
+  <div class="m-faq-list">
+    <div class="m-faq-row">What are living benefits? <div class="m-faq-plus">+</div></div>
+    <div class="m-faq-row">Do I need a medical exam? <div class="m-faq-plus">+</div></div>
+    <div class="m-faq-row">How fast can I get covered? <div class="m-faq-plus">+</div></div>
+    <div class="m-faq-row">How much does it cost? <div class="m-faq-plus">+</div></div>
+    <div class="m-faq-row">Who can apply? <div class="m-faq-plus">+</div></div>
+  </div>
+
+  <div class="m-help-card">
+    <div class="m-help-icon">💬</div>
+    <div style="flex:1;">
+      <div class="m-help-title">Still have questions?</div>
+      <div class="m-help-body">Our licensed experts are here to help you find the right coverage.</div>
+      <a href="contact.html" class="m-btn-action">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Final CTA ── -->
+<section class="m-final-cta" id="quote">
+  <div class="m-cta-bg">
+    <img src="../ux-mockup/home-page/assets/home-footer-contact.png" alt="" />
+  </div>
+  <div class="m-cta-content">
+    <h2 class="m-cta-h2">Ready to protect your family — and yourself?</h2>
+    <p class="m-cta-body">Get your free, no-obligation quote today.</p>
+    <div class="m-form-row">
+      <input class="m-input" type="text" placeholder="First name" />
+      <input class="m-input" type="text" placeholder="Last name" />
+    </div>
+    <input class="m-input full" type="email" placeholder="Email address" />
+    <input class="m-input full" type="tel" placeholder="Phone number" />
+    <a href="#" class="m-btn-gold" style="margin-top: 4px;">Get My Free Quote →</a>
+    <div class="m-cta-secure">🔒 Your information is safe and secure.</div>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer class="m-footer">
+  <div class="m-footer-logo">
+    <div class="m-footer-logo-icon">🛡</div>
+    FindInsureWise
+  </div>
+  <div class="m-footer-links">
+    <a href="#">About Us</a>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms of Use</a>
+    <a href="contact.html">Contact</a>
+  </div>
+  <div class="m-footer-bottom">© 2026 FindInsureWise. All rights reserved.</div>
+</footer>
+
+</body>
+</html>

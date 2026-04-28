@@ -264,6 +264,39 @@
       color: #1b2c20;
     }
 
+    /* ── Mobile Design section grid ── */
+    .mobile-design-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 260px));
+      gap: 24px;
+    }
+
+    /* Phone-frame card */
+    .mobile-preview {
+      height: 480px !important;
+      background: #d4dbd5;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 24px;
+    }
+    .phone-frame {
+      position: relative;
+      width: 195px;
+      height: 422px;
+      border-radius: 32px;
+      box-shadow: 0 0 0 8px #2a2a2a, 0 0 0 10px #1a1a1a, 0 12px 40px rgba(0,0,0,0.45);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .mobile-iframe {
+      width: 390px !important;
+      height: 844px !important;
+      transform: scale(0.5) !important;
+      transform-origin: top left !important;
+      pointer-events: none;
+    }
+
     /* ── Mobile preview mode ── */
     /* Phone preview: iframe at 390px, centered, with subtle device border */
     body.mobile-view .preview-link {
@@ -292,7 +325,7 @@
     <div class="topbar-icon">🛡</div>
     FindInsureWise
   </div>
-  <div class="topbar-meta"><span>7 pages</span><span class="sep"> &nbsp;·&nbsp; HTML + CSS</span></div>
+  <div class="topbar-meta"><span>8 pages</span><span class="sep"> &nbsp;·&nbsp; HTML + CSS</span></div>
   <div class="view-toggle">
     <button class="view-btn active" data-view="desktop">🖥 Desktop</button>
     <button class="view-btn" data-view="mobile">📱 Mobile</button>
@@ -392,6 +425,27 @@
         <div class="card-title">Design System</div>
         <div class="card-desc">Color tokens, typography scale, spacing, buttons, cards, forms, and all components.</div>
         <a class="card-link" href="design-system/design-system.html" target="_blank">Open page →</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── Mobile Design Section ── -->
+  <div class="section-label" style="margin-top: 56px;">Mobile Design</div>
+  <div class="mobile-design-grid">
+
+    <!-- Home Mobile -->
+    <div class="page-card mobile-card">
+      <a class="preview-link mobile-preview" href="pages/home-mobile.html" target="_blank">
+        <div class="phone-frame">
+          <iframe class="iframe-scaler mobile-iframe" loading="lazy" src="pages/home-mobile.html" scrolling="no" tabindex="-1"></iframe>
+        </div>
+      </a>
+      <div class="card-footer">
+        <div class="card-tags"><span class="tag tag-page">Page</span><span class="tag" style="background:#e8eef8;color:#2a4a8a;">Mobile</span></div>
+        <div class="card-title">Home — Mobile</div>
+        <div class="card-desc">Mobile-specific layout with full-bleed hero, horizontal benefit cards, review carousel, and sticky CTA.</div>
+        <a class="card-link" href="pages/home-mobile.html" target="_blank">Open page →</a>
       </div>
     </div>
 

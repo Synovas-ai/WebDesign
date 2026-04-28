@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FindInsureWise — Page Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Inter", system-ui, sans-serif;
+      background: #f2f3f5;
+      color: #1a1d1a;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Top bar ── */
+    .topbar {
+      background: #1b2c20;
+      color: #fff;
+      padding: 0 48px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .topbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 16px;
+    }
+    .topbar-icon {
+      width: 30px; height: 30px;
+      background: #cf9010;
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px;
+    }
+    .topbar-meta {
+      font-size: 13px;
+      color: rgba(255,255,255,0.45);
+    }
+    .topbar-meta span {
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* ── Page content ── */
+    .content {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 56px 48px 88px;
+    }
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #7a8a7a;
+      margin-bottom: 24px;
+    }
+
+    /* ── Card grid ── */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    /* ── Page card ── */
+    .page-card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #e2e6e2;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .page-card:hover {
+      box-shadow: 0 8px 28px rgba(0,0,0,0.10);
+      transform: translateY(-2px);
+    }
+
+    /* ── iframe preview ── */
+    .preview-link {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      background: #e8eceb;
+      height: 240px;
+      cursor: pointer;
+    }
+    .preview-link::after {
+      content: 'Open →';
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(27, 44, 32, 0);
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      opacity: 0;
+      transition: opacity 0.2s, background 0.2s;
+    }
+    .preview-link:hover::after {
+      opacity: 1;
+      background: rgba(27, 44, 32, 0.55);
+    }
+    .iframe-scaler {
+      width: 1440px;
+      height: 960px;
+      transform: scale(0.25);
+      transform-origin: top left;
+      pointer-events: none;
+    }
+
+    /* ── Card footer ── */
+    .card-footer {
+      padding: 18px 20px 20px;
+      border-top: 1px solid #f0f2f0;
+    }
+    .card-tags {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+    .tag {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 4px;
+    }
+    .tag-page   { background: #e8f0e9; color: #2c5f3a; }
+    .tag-system { background: #fef6e7; color: #b07a08; }
+
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #1a1d1a;
+      margin-bottom: 4px;
+    }
+    .card-desc {
+      font-size: 13px;
+      color: #6b7a6a;
+      line-height: 1.55;
+      margin-bottom: 14px;
+    }
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #2c5f3a;
+      padding: 7px 14px;
+      border: 1.5px solid #b8d4bc;
+      border-radius: 8px;
+      transition: background 0.15s, border-color 0.15s;
+    }
+    .card-link:hover {
+      background: #e8f0e9;
+      border-color: #2c5f3a;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Top bar ── -->
+<header class="topbar">
+  <div class="topbar-brand">
+    <div class="topbar-icon">🛡</div>
+    FindInsureWise
+  </div>
+  <div class="topbar-meta">Page Library &nbsp;·&nbsp; <span>7 pages</span> &nbsp;·&nbsp; HTML + CSS</div>
+</header>
+
+<!-- ── Grid ── -->
+<main class="content">
+  <div class="section-label">All pages</div>
+  <div class="grid">
+
+    <!-- Home -->
+    <div class="page-card">
+      <a class="preview-link" href="pages/home.html" target="_blank">
+        <iframe class="iframe-scaler" src="pages/home.html" scrolling="no" tabindex="-1"></iframe>
+      </a>
+      <div class="card-footer">
+        <div class="card-tags"><span class="tag tag-page">Page</span></div>
+        <div class="card-title">Home</div>
+        <div class="card-desc">Main landing page. Hero, living benefits, comparison table, testimonials, quote form.</div>
+        <a class="card-link" href="pages/home.html" target="_blank">Open page →</a>
+      </div>
+    </div>
+
+    <!-- Buying Guides -->
+    <div class="page-card">
+      <a class="preview-link" href="pages/buying-guides.html" target="_blank">
+        <iframe class="iframe-scaler" src="pages/buying-guides.html" scrolling="no" tabindex="-1"></iframe>
+      </a>
+      <div class="card-footer">
+        <div class="card-tags"><span class="tag tag-page">Page</span></div>
+        <div class="card-title">Buying Guides</div>
+        <div class="card-desc">Situation cards, comparison table, calculator strip, and quote CTA band.</div>
+        <a class="card-link" href="pages/buying-guides.html" target="_blank">Open page →</a>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="page-card">
+      <a class="preview-link" href="pages/faq.html" target="_blank">
+        <iframe class="iframe-scaler" src="pages/faq.html" scrolling="no" tabindex="-1"></iframe>
+      </a>
+      <div class="card-footer">
+        <div class="card-tags"><span class="tag tag-page">Page</span></div>
+        <div class="card-title">FAQ</div>
+        <div class="card-desc">Accordion groups by category with sticky sidebar topic nav and popular questions.</div>
+        <a class="card-link" href="pages/faq.html" target="_blank">Open page →</a>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="page-card">
+      <a class="preview-link" href="pages/contact.html" target="_blank">
+        <iframe class="iframe-scaler" src="pages/contact.html" scrolling="no" tabindex="-1"></iframe>
+      </a>
+      <div class="card-footer">
+        <div class="card-tags"><span class="tag tag-page">Page</span></div>
+        <div class="card-title">Contact</div>
+        <div class="card-desc">Contact form, commitment card, email and phone direct contact cards.</div>
+        <a class="card-link" href="pages/contact.html" target="_blank">Open page →</a>
+      </div>
+    </div>
+
+    <!-- Blog Landing -->
+    <div class="page-card">
+      <a class="preview-link" href="pages/blog-landing.html" target="_blank">
+        <iframe class="iframe-scaler" src="pages/blog-landing.html" scrolling="no" tabindex="-1"></iframe>
+      </a>
+      <div class="card-footer">
+        <div class="card-tags"><span class="tag tag-page">Page</span></div>
+        <div class="card-title">Blog</div>
+        <div class="card-desc">Featured article row, topic filter pills, 3-column article grid, popular topics sidebar.</div>
+        <a class="card-link" href="pages/blog-landing.html" target="_blank">Open page →</a>
+      </div>
+    </div>
+
+    <!-- Blog Post -->
+    <div class="page-card">
+      <a class="preview-link" href="pages/blog-post.html" target="_blank">
+        <iframe class="iframe-scaler" src="pages/blog-post.html" scrolling="no" tabindex="-1"></iframe>
+      </a>
+      <div class="card-footer">
+        <div class="card-tags"><span class="tag tag-page">Page</span></div>
+        <div class="card-title">Blog Post</div>
+        <div class="card-desc">Editorial layout with TL;DR callout, body content, and sticky sidebar with TOC.</div>
+        <a class="card-link" href="pages/blog-post.html" target="_blank">Open page →</a>
+      </div>
+    </div>
+
+    <!-- Design System -->
+    <div class="page-card">
+      <a class="preview-link" href="design-system/design-system.html" target="_blank">
+        <iframe class="iframe-scaler" src="design-system/design-system.html" scrolling="no" tabindex="-1"></iframe>
+      </a>
+      <div class="card-footer">
+        <div class="card-tags"><span class="tag tag-system">Design System</span></div>
+        <div class="card-title">Design System</div>
+        <div class="card-desc">Color tokens, typography scale, spacing, buttons, cards, forms, and all components.</div>
+        <a class="card-link" href="design-system/design-system.html" target="_blank">Open page →</a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+</body>
+</html>

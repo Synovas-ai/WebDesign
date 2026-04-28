@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Can Term Life Insurance Pay While You're Alive? — FindInsureWise</title>
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    .post-layout {
+      max-width: 1260px;
+      margin: 0 auto;
+      padding: 56px 48px 80px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 340px;
+      gap: 64px;
+      align-items: start;
+    }
+    .post-content { max-width: 720px; }
+
+    .back-link { font-size: 14px; color: var(--color-text-3); display: inline-flex; align-items: center; gap: 6px; margin-bottom: 32px; }
+    .back-link:hover { color: var(--color-heading); }
+
+    .post-category { font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-eyebrow); margin-bottom: 18px; display: block; }
+
+    .post-h1 { font-size: 60px; line-height: 1.06; margin-bottom: 28px; max-width: 680px; }
+
+    .post-subtitle { font-size: 21px; line-height: 1.7; color: var(--color-text-2); max-width: 640px; margin-bottom: 36px; }
+
+    .author-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-bottom: 28px; border-bottom: 1px solid var(--color-border); margin-bottom: 36px;
+    }
+    .author-info { display: flex; align-items: center; gap: 12px; }
+    .author-avatar-lg {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--color-bg-section); border: 1px solid var(--color-border);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 15px; color: var(--color-action);
+    }
+    .author-name-lg { font-size: 15px; font-weight: 700; color: var(--color-heading); }
+    .author-meta-sub { font-size: 13px; color: var(--color-text-3); }
+    .share-row { display: flex; gap: 10px; }
+    .share-btn {
+      width: 34px; height: 34px; border-radius: 50%;
+      border: 1px solid var(--color-border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 13px; color: var(--color-text-3); cursor: pointer;
+    }
+    .share-btn:hover { border-color: var(--color-heading); color: var(--color-heading); }
+
+    .post-hero-img {
+      width: 100%; height: 460px;
+      border-radius: 20px; object-fit: cover;
+      background: var(--color-bg-section);
+      margin-bottom: 44px;
+    }
+
+    /* Body text */
+    .post-body p { font-size: 19px; line-height: 1.9; color: #27312a; margin-bottom: 26px; }
+    .post-body h2 { font-size: 42px; line-height: 1.15; margin-top: 68px; margin-bottom: 24px; }
+    .post-body h3 { font-size: 26px; line-height: 1.3; margin-top: 44px; margin-bottom: 16px; color: var(--color-heading); }
+
+    /* Benefit list */
+    .benefit-list { display: flex; flex-direction: column; gap: 16px; margin: 28px 0; }
+    .benefit-item { display: flex; align-items: flex-start; gap: 14px; }
+    .benefit-icon {
+      width: 24px; height: 24px; border-radius: 50%;
+      background: var(--color-accent); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; flex-shrink: 0; margin-top: 2px;
+    }
+    .benefit-text { font-size: 16px; color: var(--color-text-1); line-height: 1.65; }
+    .benefit-text strong { color: var(--color-heading); }
+
+    /* Tags */
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 56px; padding-top: 32px; border-top: 1px solid var(--color-border); }
+    .tag {
+      height: 32px; padding: 0 14px;
+      border-radius: 999px; border: 1px solid var(--color-border);
+      font-size: 13px; color: var(--color-text-2); cursor: pointer;
+    }
+    .tag:hover { background: var(--color-bg-section); color: var(--color-heading); }
+
+    /* Sticky sidebar */
+    .blog-sidebar {
+      position: sticky;
+      top: 96px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .toc-list { display: flex; flex-direction: column; gap: 0; }
+    .toc-item {
+      padding: 9px 0;
+      border-bottom: 1px solid #f0f4f1;
+      font-size: 14px; color: var(--color-text-2); cursor: pointer;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .toc-item:last-child { border-bottom: none; }
+    .toc-item:hover { color: var(--color-heading); }
+    .toc-item::before { content: ''; display: block; width: 4px; height: 4px; border-radius: 50%; background: var(--color-border); flex-shrink: 0; }
+
+    /* Related articles in sidebar */
+    .related-article { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid #f0f4f1; }
+    .related-article:last-child { border-bottom: none; }
+    .related-thumb { width: 64px; height: 48px; border-radius: 8px; object-fit: cover; background: var(--color-bg-section); flex-shrink: 0; }
+    .related-title { font-size: 13px; font-weight: 600; color: var(--color-heading); line-height: 1.4; }
+    .related-meta  { font-size: 12px; color: var(--color-text-3); margin-top: 4px; }
+
+    /* Sidebar quote CTA */
+    .sidebar-cta-img { width: 100%; height: 140px; object-fit: cover; border-radius: 12px 12px 0 0; background: var(--color-bg-section); margin: -24px -24px 20px; width: calc(100% + 48px); border-radius: 10px 10px 0 0; }
+
+    .newsletter-section { max-width: var(--max-w); margin: 0 auto 88px; padding: 0 48px; }
+  </style>
+</head>
+<body>
+
+<!-- ── Header ── -->
+<header class="site-header">
+  <div class="container">
+    <a href="home.html" class="header-logo">
+      <div class="logo-icon">🛡</div>
+      FindInsureWise
+    </a>
+    <nav class="header-nav">
+      <a href="buying-guides.html">Term Life Insurance</a>
+      <a href="buying-guides.html">Living Benefits</a>
+      <a href="#">About Us</a>
+      <a href="blog-landing.html">Resources</a>
+    </nav>
+    <a href="home.html#quote" class="btn btn-gold btn-sm">Get a Free Quote →</a>
+  </div>
+</header>
+
+<!-- ── Post Layout ── -->
+<div class="post-layout">
+
+  <!-- Left: Article -->
+  <article class="post-content">
+
+    <!-- Back link -->
+    <a href="blog-landing.html" class="back-link">← Back to all articles</a>
+
+    <!-- Category + Title -->
+    <span class="post-category">Living Benefits</span>
+    <h1 class="post-h1">Can Term Life Insurance Pay While You're Alive?</h1>
+    <p class="post-subtitle">Living benefits can help you access life insurance money when you need it most. Here's how it works and who qualifies.</p>
+
+    <!-- Author meta row -->
+    <div class="author-row">
+      <div class="author-info">
+        <div class="author-avatar-lg">JL</div>
+        <div>
+          <div class="author-name-lg">Jeff Lin</div>
+          <div class="author-meta-sub">May 12, 2026 &middot; 6 min read</div>
+        </div>
+      </div>
+      <div class="share-row">
+        <div class="share-btn">f</div>
+        <div class="share-btn">in</div>
+        <div class="share-btn">✉</div>
+      </div>
+    </div>
+
+    <!-- Hero image -->
+    <div class="post-hero-img"></div>
+
+    <!-- TL;DR -->
+    <div class="tldr-box">
+      <div class="tldr-header">
+        <span style="font-size: 18px;">🛡</span>
+        <span class="tldr-label">TL;DR</span>
+      </div>
+      <div class="tldr-items">
+        <div class="tldr-item"><div class="tldr-dot"></div>Some term life policies offer living benefits that let you access part of your death benefit early.</div>
+        <div class="tldr-item"><div class="tldr-dot"></div>These benefits can help with serious illness, chronic conditions, or terminal illness.</div>
+        <div class="tldr-item"><div class="tldr-dot"></div>Not all policies include living benefits — check your policy details before assuming coverage.</div>
+      </div>
+    </div>
+
+    <!-- Body -->
+    <div class="post-body">
+      <h2 id="what-are-living-benefits">What Are Living Benefits?</h2>
+      <p>Most people think of life insurance as something that only pays after you're gone. But a growing number of term life policies include a feature called "living benefits" — also known as accelerated death benefits — that can allow you to access part of your policy's value while you're still alive.</p>
+      <p>Living benefits typically activate when you're diagnosed with a qualifying serious illness. Depending on the policy and carrier, this could include critical illness, chronic illness, or a terminal illness diagnosis.</p>
+
+      <h2 id="how-do-they-work">How Do They Work?</h2>
+      <p>When a qualifying event occurs, you submit a claim to your insurance carrier. If approved, you receive an accelerated payment from your death benefit — typically a percentage of the total, not the full amount. The remaining death benefit stays in force for your beneficiaries.</p>
+
+      <div class="benefit-list">
+        <div class="benefit-item">
+          <div class="benefit-icon">✓</div>
+          <div class="benefit-text"><strong>Critical Illness:</strong> Heart attack, stroke, major organ failure, invasive cancer, and similar conditions may qualify.</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">✓</div>
+          <div class="benefit-text"><strong>Chronic Illness:</strong> Inability to perform 2+ activities of daily living (bathing, eating, dressing) for 90+ days.</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">✓</div>
+          <div class="benefit-text"><strong>Terminal Illness:</strong> A life expectancy of 12–24 months or less as certified by a licensed physician.</div>
+        </div>
+      </div>
+
+      <!-- Mid-article CTA -->
+      <div class="mid-cta">
+        <div class="mid-cta-text">See how much coverage can protect your family and your future.</div>
+        <a href="home.html#quote" class="btn btn-gold btn-sm">Get My Free Quote →</a>
+      </div>
+
+      <h2 id="who-qualifies">Who Qualifies?</h2>
+      <p>Qualification depends on your specific policy and carrier. Living benefits are not universal — they must be included in your policy at issue or added as a rider. Many modern term policies include them at no extra cost, but the specific conditions and payout percentages vary widely.</p>
+      <p>Our advisors only recommend carriers with robust living benefit provisions, so you'll always know exactly what's included in any policy we help you apply for.</p>
+
+      <h3 id="benefits-vs-riders">Benefits vs. Riders: What's the Difference?</h3>
+      <p>Some carriers include living benefits automatically as part of the base policy. Others require you to add them as a "rider" — a separate policy add-on that may carry an additional cost. Make sure you understand which applies to your policy before assuming you have this coverage.</p>
+
+      <h2 id="should-you-add">Should You Add Living Benefits?</h2>
+      <p>If your carrier includes living benefits at no extra cost, there's almost no reason not to have them. They provide a meaningful safety net for serious illness that traditional health insurance often doesn't fully cover — lost income, mortgage payments, home care, and other out-of-pocket costs.</p>
+      <p>If living benefits require a paid rider, your advisor can help you weigh the cost against the potential benefit based on your health history and financial situation.</p>
+
+      <h2 id="the-bottom-line">The Bottom Line</h2>
+      <p>Term life insurance with living benefits is no longer a niche product. It's increasingly standard, and for good reason. The ability to access your coverage during a major health crisis — not just after death — fundamentally changes what life insurance can do for your family.</p>
+    </div>
+
+    <!-- Tags -->
+    <div class="tags">
+      <div class="tag">living benefits</div>
+      <div class="tag">term life</div>
+      <div class="tag">critical illness</div>
+      <div class="tag">life insurance basics</div>
+    </div>
+
+  </article>
+
+  <!-- Right: Sidebar -->
+  <aside class="blog-sidebar">
+
+    <!-- On This Page -->
+    <div class="sidebar-card">
+      <div class="sidebar-title">On This Page</div>
+      <div class="toc-list">
+        <a href="#what-are-living-benefits" class="toc-item" style="text-decoration:none;">What Are Living Benefits?</a>
+        <a href="#how-do-they-work" class="toc-item" style="text-decoration:none;">How Do They Work?</a>
+        <a href="#who-qualifies" class="toc-item" style="text-decoration:none;">Who Qualifies?</a>
+        <a href="#benefits-vs-riders" class="toc-item" style="text-decoration:none;">Benefits vs Riders</a>
+        <a href="#should-you-add" class="toc-item" style="text-decoration:none;">Should You Add It?</a>
+        <a href="#the-bottom-line" class="toc-item" style="text-decoration:none;">The Bottom Line</a>
+      </div>
+    </div>
+
+    <!-- Related Articles -->
+    <div class="sidebar-card">
+      <div class="sidebar-title">Related Articles</div>
+      <div>
+        <div class="related-article">
+          <div class="related-thumb"></div>
+          <div>
+            <div class="related-title">Living Benefits vs. Critical Illness Insurance</div>
+            <div class="related-meta">6 min read</div>
+          </div>
+        </div>
+        <div class="related-article">
+          <div class="related-thumb"></div>
+          <div>
+            <div class="related-title">What Illnesses Qualify for Living Benefits?</div>
+            <div class="related-meta">4 min read</div>
+          </div>
+        </div>
+        <div class="related-article">
+          <div class="related-thumb"></div>
+          <div>
+            <div class="related-title">Do All Term Policies Include Living Benefits?</div>
+            <div class="related-meta">3 min read</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quote CTA -->
+    <div class="sidebar-card">
+      <div style="height: 120px; background: var(--color-bg-section); border-radius: 10px; margin-bottom: 18px;"></div>
+      <div class="sidebar-title" style="margin-bottom: 8px;">Ready to protect what matters most?</div>
+      <p style="font-size: 14px; color: var(--color-text-2); line-height: 1.65; margin-bottom: 16px;">Get your free, no-obligation quote in minutes.</p>
+      <a href="home.html#quote" class="btn btn-gold" style="width: 100%;">Get My Free Quote →</a>
+    </div>
+
+    <!-- Email capture -->
+    <div class="sidebar-card">
+      <div style="font-size: 24px; margin-bottom: 14px;">✉️</div>
+      <div class="sidebar-title" style="margin-bottom: 8px;">Get expert tips &amp; guides in your inbox</div>
+      <input class="form-input" type="email" placeholder="Email address" style="margin-bottom: 10px;" />
+      <button class="btn btn-action" style="width: 100%;">Subscribe</button>
+    </div>
+
+  </aside>
+</div>
+
+<!-- ── Newsletter ── -->
+<div class="newsletter-section">
+  <div class="newsletter-band">
+    <div class="newsletter-icon">✉️</div>
+    <div class="newsletter-copy">
+      <strong>Get expert tips &amp; guides in your inbox</strong>
+      <span>Join thousands of families making smarter insurance decisions.</span>
+    </div>
+    <div class="newsletter-form">
+      <input type="email" placeholder="Email address" />
+      <button class="btn btn-action btn-sm">Subscribe</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── Footer ── -->
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <div class="footer-brand-name">FindInsureWise</div>
+      <p class="footer-tagline">Simple. Honest.<br />Protection for what matters most.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <div class="footer-links">
+        <a href="#">About Us</a><a href="#">How It Works</a><a href="contact.html">Contact Us</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Resources</div>
+      <div class="footer-links">
+        <a href="blog-landing.html">Blog</a><a href="buying-guides.html">Guides</a><a href="faq.html">FAQ</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Legal</div>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a><a href="#">Terms of Use</a><a href="#">Licensing</a>
+      </div>
+    </div>
+    <div><a href="home.html#quote" class="btn btn-outline-gold btn-sm">Get a Free Quote →</a></div>
+  </div>
+  <div class="container"><div class="footer-bottom">© 2026 FindInsureWise. All rights reserved.</div></div>
+</footer>
+
+</body>
+</html>

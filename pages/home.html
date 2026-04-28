@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Term Life Insurance with Living Benefits — FindInsureWise</title>
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    /* ── Hero ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 620px;
+      background: #fff;
+      overflow: hidden;
+    }
+    .hero-left {
+      padding: 80px 56px 80px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .hero-h1 { font-size: 62px; font-weight: 600; line-height: 1.05; margin-bottom: 22px; }
+    .hero-h1 .gold { color: var(--color-gold); }
+    .hero-body { font-size: 18px; color: var(--color-text-2); line-height: 1.75; max-width: 480px; margin-bottom: 28px; }
+    .hero-trust { margin-bottom: 32px; }
+    .hero-cta { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+    .hero-right { position: relative; overflow: hidden; }
+    .hero-right img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-badge {
+      position: absolute;
+      bottom: 32px; left: 32px;
+      background: var(--color-heading);
+      color: #fff;
+      border-radius: 16px;
+      padding: 16px 20px;
+      max-width: 230px;
+      font-size: 14px; line-height: 1.5;
+      box-shadow: 0 12px 32px rgba(0,0,0,0.25);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .hero-badge .icon { font-size: 22px; color: var(--color-gold); flex-shrink: 0; }
+
+    /* ── Benefits section ── */
+    .benefits-intro {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 48px;
+    }
+    .benefits-intro h2 { font-size: 40px; }
+
+    /* ── Comparison ── */
+    .comparison-wrap {
+      background: #fff;
+      border: 1px solid var(--color-border);
+      border-radius: 22px;
+      padding: 0 0 0;
+      overflow: hidden;
+      max-width: 820px;
+      margin: 0 auto 32px;
+    }
+    .comparison-cta { text-align: center; }
+
+    /* ── Process ── */
+    .process-cards { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; position: relative; }
+    .process-card { text-align: center; }
+    .process-card .icon-circle { margin: 0 auto 18px; }
+    .process-card h3 { font-size: 20px; margin-bottom: 8px; }
+    .process-card p  { font-size: 15px; color: var(--color-text-2); line-height: 1.65; }
+
+    /* ── Testimonials ── */
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; }
+
+    /* ── Carriers ── */
+    .carrier-logos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      margin-top: 12px;
+    }
+    .carrier-logo {
+      font-family: var(--font-serif);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--color-text-3);
+      letter-spacing: 0.02em;
+    }
+
+    /* ── FAQ ── */
+    .faq-wrap { display: grid; grid-template-columns: 1fr 380px; gap: 48px; align-items: start; }
+    .help-card {
+      background: #f8faf7;
+      border: 1px solid var(--color-border);
+      border-radius: 18px;
+      padding: 28px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      margin-top: 24px;
+    }
+    .help-card-icon { font-size: 28px; color: var(--color-eyebrow); flex-shrink: 0; }
+    .help-card h3 { font-size: 18px; font-weight: 700; color: var(--color-heading); margin-bottom: 6px; }
+    .help-card p  { font-size: 14px; color: var(--color-text-2); line-height: 1.65; margin-bottom: 16px; }
+
+    /* ── Final CTA ── */
+    .final-cta {
+      position: relative;
+      overflow: hidden;
+      background: var(--color-footer-bg);
+    }
+    .final-cta-photo {
+      position: absolute; inset: 0;
+    }
+    .final-cta-photo img { width: 100%; height: 100%; object-fit: cover; opacity: 0.35; }
+    .final-cta-inner {
+      position: relative; z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 88px 48px;
+    }
+    .final-cta-copy h2 { font-size: 48px; color: #fff; margin-bottom: 16px; }
+    .final-cta-copy p  { font-size: 18px; color: rgba(255,255,255,0.7); }
+    .final-cta-form { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 20px; padding: 32px; }
+    .final-cta-form .form-input { background: rgba(255,255,255,0.95); }
+    .final-cta-form .form-input::placeholder { color: var(--color-text-3); }
+    .final-cta-form .secure-note { color: rgba(255,255,255,0.5); }
+  </style>
+</head>
+<body>
+
+<!-- ── Header ── -->
+<header class="site-header">
+  <div class="container">
+    <a href="home.html" class="header-logo">
+      <div class="logo-icon">🛡</div>
+      FindInsureWise
+    </a>
+    <nav class="header-nav">
+      <a href="#">How It Works</a>
+      <a href="buying-guides.html">Living Benefits</a>
+      <a href="#">About Us</a>
+      <a href="blog-landing.html">Resources</a>
+    </nav>
+    <a href="#quote" class="btn btn-gold btn-sm">Get My Free Quote →</a>
+  </div>
+</header>
+
+<!-- ── Hero ── -->
+<section class="hero">
+  <div class="hero-left">
+    <span class="eyebrow">Life Insurance with Living Benefits</span>
+    <h1 class="hero-h1">
+      Term Life Insurance<br />
+      That Can Help<br />
+      <span class="gold">While You're Alive</span>
+    </h1>
+    <p class="hero-body">Affordable term life coverage that protects your family — with living benefits that may provide early cash access after a qualifying serious illness.</p>
+    <div class="trust-row hero-trust">
+      <div class="trust-item"><div class="trust-check">✓</div> No obligation</div>
+      <div class="trust-item"><div class="trust-check">✓</div> Multiple carriers</div>
+      <div class="trust-item"><div class="trust-check">✓</div> Licensed experts</div>
+      <div class="trust-item"><div class="trust-check">✓</div> Nationwide coverage</div>
+    </div>
+    <div class="hero-cta">
+      <a href="#quote" class="btn btn-gold btn-lg">Get My Free Quote →</a>
+      <div class="secure-note">🔒 Your information is safe and secure.</div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="../ux-mockup/home-page/assets/home-hero-desktop.png" alt="Happy family at home" />
+    <div class="hero-badge">
+      <span class="icon">🛡</span>
+      Helping families plan today for life's what-ifs tomorrow.
+    </div>
+  </div>
+</section>
+
+<!-- ── Living Benefits ── -->
+<section class="section alt">
+  <div class="container">
+    <div class="benefits-intro">
+      <h2>Life doesn't stop when illness strikes.<br />Your coverage shouldn't either.</h2>
+    </div>
+    <div class="card-grid-3">
+      <div class="card">
+        <div class="icon-circle">🏥</div>
+        <div class="card-title">Critical Illness</div>
+        <p class="card-body">Access a portion of your death benefit if you're diagnosed with a covered critical illness.</p>
+        <a href="buying-guides.html" class="card-link">Learn more →</a>
+      </div>
+      <div class="card">
+        <div class="icon-circle">❤️</div>
+        <div class="card-title">Chronic Illness</div>
+        <p class="card-body">Get support if you're unable to perform 2+ daily activities due to a chronic condition.</p>
+        <a href="buying-guides.html" class="card-link">Learn more →</a>
+      </div>
+      <div class="card">
+        <div class="icon-circle">🛡</div>
+        <div class="card-title">Terminal Illness</div>
+        <p class="card-body">Receive early benefits if you're diagnosed with a terminal illness with limited time.</p>
+        <a href="buying-guides.html" class="card-link">Learn more →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Comparison ── -->
+<section class="section">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="eyebrow">The Clear Difference</span>
+      <h2 class="section-title">Most term life pays later.<br />Living benefits may help when life happens.</h2>
+    </div>
+    <div class="comparison-wrap">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th style="width:50%; text-align:left; padding:16px 18px; font-size:13px; color:var(--color-text-3);">Includes</th>
+            <th class="col-highlight" style="width:25%;">Term Life with<br />Living Benefits</th>
+            <th style="width:25%;">Traditional<br />Term Life</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Pays your family if you pass away</td>
+            <td class="col-highlight"><span class="check-icon">✓</span></td>
+            <td class="col-other"><span class="check-icon">✓</span></td>
+          </tr>
+          <tr>
+            <td>May provide early access after critical illness</td>
+            <td class="col-highlight"><span class="check-icon">✓</span></td>
+            <td class="col-other"><span class="dash">—</span></td>
+          </tr>
+          <tr>
+            <td>May help if chronic illness affects daily living</td>
+            <td class="col-highlight"><span class="check-icon">✓</span></td>
+            <td class="col-other"><span class="dash">—</span></td>
+          </tr>
+          <tr>
+            <td>Helps during life, not only after death</td>
+            <td class="col-highlight"><span class="check-icon">✓</span></td>
+            <td class="col-other"><span class="dash">—</span></td>
+          </tr>
+          <tr>
+            <td>Usually no extra cost on selected policies</td>
+            <td class="col-highlight"><span class="check-icon">✓</span></td>
+            <td class="col-other"><span class="dash">—</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="comparison-cta">
+      <a href="#quote" class="btn btn-outline-green">Compare My Options →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Process ── -->
+<section class="section alt">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="eyebrow">Simple Process</span>
+      <h2 class="section-title">Getting covered is easier than you think.</h2>
+    </div>
+    <div class="process-cards">
+      <div class="card process-card">
+        <div class="icon-circle">📋</div>
+        <div class="step-number" style="margin: 0 auto 12px;">1</div>
+        <h3>Tell us about yourself</h3>
+        <p>Answer a few simple questions about you and your family.</p>
+      </div>
+      <div class="card process-card">
+        <div class="icon-circle">🔍</div>
+        <div class="step-number" style="margin: 0 auto 12px;">2</div>
+        <h3>We find your options</h3>
+        <p>We compare top-rated carriers to find the best fit for you.</p>
+      </div>
+      <div class="card process-card">
+        <div class="icon-circle">✅</div>
+        <div class="step-number" style="margin: 0 auto 12px;">3</div>
+        <h3>You decide</h3>
+        <p>Choose your coverage and get protected — fast and stress-free.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Testimonials ── -->
+<section class="section">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="eyebrow">Real People. Real Stories.</span>
+      <h2 class="section-title">Families protected with confidence.</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="card">
+        <div class="stars">★★★★★</div>
+        <p class="review-quote">"Knowing my policy can help my family now, not just later, gives me peace of mind every day."</p>
+        <div class="review-author">
+          <div class="author-avatar">J</div>
+          <div><div class="author-name">Jessica M.</div><div class="author-role">Mother of Two</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="stars">★★★★★</div>
+        <p class="review-quote">"The team explained living benefits so clearly. I finally feel like our policy fits our real life."</p>
+        <div class="review-author">
+          <div class="author-avatar">D</div>
+          <div><div class="author-name">David R.</div><div class="author-role">Small Business Owner</div></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="stars">★★★★★</div>
+        <p class="review-quote">"It was quick, easy, and there was no pressure. I got coverage that actually makes sense for us."</p>
+        <div class="review-author">
+          <div class="author-avatar">A</div>
+          <div><div class="author-name">Amanda S.</div><div class="author-role">Teacher</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Carrier Logos ── -->
+<section class="section alt">
+  <div class="container">
+    <div class="section-header centered">
+      <span class="eyebrow">We Work with Trusted Carriers</span>
+    </div>
+    <div class="carrier-logos">
+      <span class="carrier-logo">Prudential</span>
+      <span class="carrier-logo">Lincoln Financial</span>
+      <span class="carrier-logo">Pacific Life</span>
+      <span class="carrier-logo">Protective</span>
+      <span class="carrier-logo">Transamerica</span>
+      <span class="carrier-logo" style="color:var(--color-text-3); font-family:var(--font-sans); font-size:14px;">And more...</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section class="section">
+  <div class="container">
+    <div class="faq-wrap">
+      <div>
+        <span class="eyebrow">Common Questions</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="accordion">
+          <details class="faq-item">
+            <summary>What are living benefits?</summary>
+            <div class="faq-answer">Living benefits are riders or built-in features that allow you to access a portion of your death benefit while you're still alive if you're diagnosed with a qualifying critical, chronic, or terminal illness.</div>
+          </details>
+          <details class="faq-item">
+            <summary>Do I need a medical exam?</summary>
+            <div class="faq-answer">Many policies offer simplified or no-exam options. The requirement depends on your age, health, and the coverage amount you're applying for. We'll help you find the best fit.</div>
+          </details>
+          <details class="faq-item">
+            <summary>How fast can I get covered?</summary>
+            <div class="faq-answer">Some policies can be approved in as little as 24–48 hours. Coverage timelines vary by carrier and the underwriting process required for your application.</div>
+          </details>
+          <details class="faq-item">
+            <summary>How much does it cost?</summary>
+            <div class="faq-answer">Premiums depend on your age, health, coverage amount, and term length. Many families are surprised by how affordable coverage can be — especially when obtained at a younger age.</div>
+          </details>
+          <details class="faq-item">
+            <summary>Who can apply?</summary>
+            <div class="faq-answer">Most adults between 18 and 70 can apply. Eligibility varies by carrier and health profile. Our licensed advisors will help match you with the right carrier for your situation.</div>
+          </details>
+        </div>
+        <div style="margin-top: 20px;">
+          <a href="faq.html" class="card-link">View all FAQs →</a>
+        </div>
+        <div class="help-card">
+          <div class="help-card-icon">💬</div>
+          <div>
+            <h3>Still have questions?</h3>
+            <p>Our licensed experts are here to help you find the right coverage.</p>
+            <a href="contact.html" class="btn btn-gold btn-sm">Contact Us</a>
+          </div>
+        </div>
+      </div>
+      <div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Final CTA ── -->
+<section class="final-cta" id="quote">
+  <div class="final-cta-photo">
+    <img src="../ux-mockup/home-page/assets/home-footer-contact.png" alt="" />
+  </div>
+  <div class="final-cta-inner">
+    <div class="final-cta-copy">
+      <h2>Ready to protect your family — and yourself?</h2>
+      <p>Get your free, no-obligation quote today.</p>
+    </div>
+    <div class="final-cta-form">
+      <div class="form-grid" style="margin-bottom:14px;">
+        <div class="form-field">
+          <input class="form-input" type="text" placeholder="First name" />
+        </div>
+        <div class="form-field">
+          <input class="form-input" type="text" placeholder="Last name" />
+        </div>
+        <div class="form-field">
+          <input class="form-input" type="email" placeholder="Email address" />
+        </div>
+        <div class="form-field">
+          <input class="form-input" type="tel" placeholder="Phone number" />
+        </div>
+      </div>
+      <a href="#" class="btn btn-gold" style="width:100%; margin-bottom:10px;">Get My Free Quote →</a>
+      <div class="secure-note">🔒 Your information is safe and secure.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <div class="footer-brand-name">FindInsureWise</div>
+      <p class="footer-tagline">Simple. Honest.<br />Protection for what matters most.</p>
+      <div class="footer-social">
+        <a href="#">f</a><a href="#">in</a><a href="#">ig</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <div class="footer-links">
+        <a href="#">About Us</a>
+        <a href="#">How It Works</a>
+        <a href="contact.html">Contact Us</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Resources</div>
+      <div class="footer-links">
+        <a href="blog-landing.html">Blog</a>
+        <a href="buying-guides.html">Guides</a>
+        <a href="faq.html">FAQ</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Legal</div>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Licensing</a>
+      </div>
+    </div>
+    <div>
+      <a href="#quote" class="btn btn-outline-gold btn-sm">Get a Free Quote →</a>
+    </div>
+  </div>
+  <div class="container">
+    <div class="footer-bottom">© 2026 FindInsureWise. All rights reserved.</div>
+  </div>
+</footer>
+
+</body>
+</html>

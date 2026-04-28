@@ -10,16 +10,17 @@
   <style>
     /* ── CSS Variables ─────────────────────────────────────── */
     :root {
-      --color-heading:    #123d2a;
-      --color-footer-bg:  #0f3a25;
-      --color-action:     #0e5b37;
-      --color-eyebrow:    #1f7a45;
-      --color-accent:     #27500a;
-      --color-gold:       #c98a1e;
-      --color-gold-hover: #b07618;
+      --color-heading:    #1b2c20;
+      --color-footer-bg:  #0d1f13;
+      --color-action:     #2c5f3a;
+      --color-eyebrow:    #3d6e42;
+      --color-accent:     #3a6b3e;
+      --color-gold:       #cf9010;
+      --color-gold-hover: #b07a08;
       --color-gold-bg:    #fef6e7;
       --color-gold-border:#e8c98b;
-      --color-bg-page:    #f6f8f5;
+      --color-bg-page:    #ffffff;
+      --color-bg-section: #f5f7f4;
       --color-bg-card:    #ffffff;
       --color-border:     #d8e2d4;
       --color-text-1:     #2c3b2a;
@@ -203,7 +204,7 @@
     .btn-gold:hover { background: var(--color-gold-hover); }
 
     .btn-action { background: var(--color-action); color: #fff; }
-    .btn-action:hover { background: #0a4a2c; }
+    .btn-action:hover { background: #224d2e; }
 
     .btn-outline-green {
       background: transparent;
@@ -242,8 +243,8 @@
       width: 56px;
       height: 56px;
       border-radius: 50%;
-      background: #eaf3de;
-      border: 1px solid #c0dd97;
+      background: #e8f0e9;
+      border: 1px solid #b8d4bc;
       color: var(--color-accent);
       display: flex;
       align-items: center;
@@ -316,7 +317,7 @@
       transition: border-color 0.2s;
       outline: none;
     }
-    .form-input:focus { border-color: var(--color-action); box-shadow: 0 0 0 3px rgba(14,91,55,0.08); }
+    .form-input:focus { border-color: var(--color-action); box-shadow: 0 0 0 3px rgba(44,95,58,0.08); }
     .form-input::placeholder { color: var(--color-text-3); }
     .form-textarea {
       height: 140px;
@@ -369,8 +370,8 @@
       width: 22px;
       height: 22px;
       border-radius: 50%;
-      background: var(--color-accent);
-      color: #fff;
+      border: 1.5px solid var(--color-accent);
+      color: var(--color-accent);
       font-size: 12px;
       display: flex;
       align-items: center;
@@ -474,43 +475,43 @@
     <p class="color-group-label">Brand Greens</p>
     <div class="color-grid">
       <div class="color-swatch">
-        <div class="swatch-block" style="background:#123d2a;"></div>
+        <div class="swatch-block" style="background:#1b2c20;"></div>
         <div class="swatch-info">
           <div class="swatch-name">Heading</div>
-          <div class="swatch-hex">#123d2a</div>
+          <div class="swatch-hex">#1b2c20</div>
           <div class="swatch-use">H1, H2, display text</div>
         </div>
       </div>
       <div class="color-swatch">
-        <div class="swatch-block" style="background:#0f3a25;"></div>
+        <div class="swatch-block" style="background:#0d1f13;"></div>
         <div class="swatch-info">
           <div class="swatch-name">Footer BG</div>
-          <div class="swatch-hex">#0f3a25</div>
-          <div class="swatch-use">Footer, final CTA background</div>
+          <div class="swatch-hex">#0d1f13</div>
+          <div class="swatch-use">Footer, final CTA — near-black green</div>
         </div>
       </div>
       <div class="color-swatch">
-        <div class="swatch-block" style="background:#0e5b37;"></div>
+        <div class="swatch-block" style="background:#2c5f3a;"></div>
         <div class="swatch-info">
           <div class="swatch-name">Action</div>
-          <div class="swatch-hex">#0e5b37</div>
-          <div class="swatch-use">Dark action buttons</div>
+          <div class="swatch-hex">#2c5f3a</div>
+          <div class="swatch-use">Subscribe, secondary action buttons</div>
         </div>
       </div>
       <div class="color-swatch">
-        <div class="swatch-block" style="background:#1f7a45;"></div>
+        <div class="swatch-block" style="background:#3d6e42;"></div>
         <div class="swatch-info">
           <div class="swatch-name">Eyebrow</div>
-          <div class="swatch-hex">#1f7a45</div>
-          <div class="swatch-use">Eyebrow labels, inline links</div>
+          <div class="swatch-hex">#3d6e42</div>
+          <div class="swatch-use">Eyebrow labels — muted olive-green</div>
         </div>
       </div>
       <div class="color-swatch">
-        <div class="swatch-block" style="background:#27500a;"></div>
+        <div class="swatch-block" style="background:#3a6b3e;"></div>
         <div class="swatch-info">
           <div class="swatch-name">Accent</div>
-          <div class="swatch-hex">#27500a</div>
-          <div class="swatch-use">Check icons, active states</div>
+          <div class="swatch-hex">#3a6b3e</div>
+          <div class="swatch-use">Trust bullet circles, active states</div>
         </div>
       </div>
     </div>
@@ -518,18 +519,18 @@
     <p class="color-group-label">Gold</p>
     <div class="color-grid">
       <div class="color-swatch">
-        <div class="swatch-block" style="background:#c98a1e;"></div>
+        <div class="swatch-block" style="background:#cf9010;"></div>
         <div class="swatch-info">
           <div class="swatch-name">Gold</div>
-          <div class="swatch-hex">#c98a1e</div>
-          <div class="swatch-use">Primary CTA buttons</div>
+          <div class="swatch-hex">#cf9010</div>
+          <div class="swatch-use">Primary CTA buttons + H1 accent line</div>
         </div>
       </div>
       <div class="color-swatch">
-        <div class="swatch-block" style="background:#b07618;"></div>
+        <div class="swatch-block" style="background:#b07a08;"></div>
         <div class="swatch-info">
           <div class="swatch-name">Gold Hover</div>
-          <div class="swatch-hex">#b07618</div>
+          <div class="swatch-hex">#b07a08</div>
           <div class="swatch-use">CTA button hover</div>
         </div>
       </div>
@@ -546,11 +547,19 @@
     <p class="color-group-label">Neutrals</p>
     <div class="color-grid">
       <div class="color-swatch">
-        <div class="swatch-block" style="background:#f6f8f5; border-bottom:1px solid #d8e2d4;"></div>
+        <div class="swatch-block" style="background:#ffffff; border-bottom:1px solid #d8e2d4;"></div>
         <div class="swatch-info">
           <div class="swatch-name">BG Page</div>
-          <div class="swatch-hex">#f6f8f5</div>
-          <div class="swatch-use">Page / section background</div>
+          <div class="swatch-hex">#ffffff</div>
+          <div class="swatch-use">Primary page + hero background</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="swatch-block" style="background:#f5f7f4; border-bottom:1px solid #d8e2d4;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">BG Section</div>
+          <div class="swatch-hex">#f5f7f4</div>
+          <div class="swatch-use">Subtle alternating section background</div>
         </div>
       </div>
       <div class="color-swatch">
@@ -612,9 +621,9 @@
     <div class="type-sample">
       <div class="type-meta">
         <span><strong>H1</strong></span>
-        <span>64px desktop · 40px mobile · Playfair Display 600 · line-height 1.08</span>
+        <span>64px desktop · 40px mobile · Playfair Display 600 · line-height 1.08 · final emphasis line in gold</span>
       </div>
-      <h1 class="sample-h1">Term Life Insurance<br />That Can Help<br />While You're Alive</h1>
+      <h1 class="sample-h1">Term Life Insurance<br />That Can Help<br /><span style="color:var(--color-gold);">While You're Alive</span></h1>
     </div>
 
     <div class="type-sample">

@@ -9,9 +9,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 This is a **design specification repository** for FindInsureWise (a Synova product), not a code project. There are no build commands or tests.
 
 ```
-docs/
-├── specs/          ← 9 .md files — one per page/component + site-map index
-└── design/
+specs/              ← 9 .md files — one per page/component + site-map index
+ux-mockup/
     ├── shared/             ← CTA Card (used across pages)
     ├── home-page/          ← desktop + mobile references together
     ├── contact-page/
@@ -19,14 +18,15 @@ docs/
     ├── buying-guides-page/
     ├── blog-landing-page/
     └── blog-post-page/
+design-system/      ← design-system.md + design-system.html
 ```
 
-Each spec file contains copy, section structure, inline CSS values, and responsive rules. Each design folder contains:
+Each spec file contains copy, section structure, inline CSS values, and responsive rules. Each ux-mockup folder contains:
 - `{page}-reference-full.png` — full-page composite
 - `{page}-reference-{n}.png` — section-level screenshots for visual QA
-- `{page}-hero-{n}.png` / `{page}-card-{n}.png` / `{page}-asset-{n}.png` — production image assets
+- `assets/{page}-hero-{n}.png` / `assets/{page}-card-{n}.png` — production image assets
 
-When implementing, read the spec first, then use reference images to validate visual fidelity. Start with `docs/specs/site-map.md` for implementation order and the full route → spec → asset mapping.
+When implementing, read the spec first, then use reference images to validate visual fidelity. Start with `specs/site-map.md` for implementation order and the full route → spec → asset mapping.
 
 ---
 

@@ -22,20 +22,20 @@ Build shared components first, then pages roughly in funnel order:
 
 | Route | Spec file | Design folder |
 |-------|-----------|---------------|
-| `/` | `specs/home.md` | `design/home-page/` |
-| `/` (mobile) | `specs/home-mobile.md` | `design/home-page/` |
-| `/contact` | `specs/contact.md` | `design/contact-page/` |
-| `/faq` | `specs/faq.md` | `design/faq-page/` |
-| `/buying-guides` | `specs/buying-guides.md` | `design/buying-guides-page/` |
-| `/blog` | `specs/blog-landing.md` | `design/blog-landing-page/` |
-| `/blog/:slug` | `specs/blog-post.md` | `design/blog-post-page/` |
-| Component (no route) | `specs/cta-card.md` | `design/shared/` |
+| `/` | `specs/home.md` | `ux-mockup/home-page/` |
+| `/` (mobile) | `specs/home-mobile.md` | `ux-mockup/home-page/` |
+| `/contact` | `specs/contact.md` | `ux-mockup/contact-page/` |
+| `/faq` | `specs/faq.md` | `ux-mockup/faq-page/` |
+| `/buying-guides` | `specs/buying-guides.md` | `ux-mockup/buying-guides-page/` |
+| `/blog` | `specs/blog-landing.md` | `ux-mockup/blog-landing-page/` |
+| `/blog/:slug` | `specs/blog-post.md` | `ux-mockup/blog-post-page/` |
+| Component (no route) | `specs/cta-card.md` | `ux-mockup/shared/` |
 
 ---
 
 ## Design Asset Index
 
-### `design/home-page/` — 15 files
+### `ux-mockup/home-page/` — 15 files
 
 | File | Type | Description |
 |------|------|-------------|
@@ -46,7 +46,7 @@ Build shared components first, then pages roughly in funnel order:
 | `home-hero-alt.png` | asset | Alternate hero image |
 | `home-footer-contact.png` | asset | Contact/footer area asset |
 
-### `design/contact-page/` — 5 files
+### `ux-mockup/contact-page/` — 5 files
 
 | File | Type | Description |
 |------|------|-------------|
@@ -54,7 +54,7 @@ Build shared components first, then pages roughly in funnel order:
 | `contact-reference-1.png`, `contact-reference-2.png` | reference | Section-level screenshots |
 | `contact-hero-1.png`, `contact-hero-2.png` | asset | Hero image assets |
 
-### `design/faq-page/` — 5 files
+### `ux-mockup/faq-page/` — 5 files
 
 | File | Type | Description |
 |------|------|-------------|
@@ -62,7 +62,7 @@ Build shared components first, then pages roughly in funnel order:
 | `faq-reference-1.png` … `faq-reference-3.png` | reference | Section-level screenshots |
 | `faq-hero.png` | asset | Hero image asset |
 
-### `design/buying-guides-page/` — 12 files
+### `ux-mockup/buying-guides-page/` — 12 files
 
 | File | Type | Description |
 |------|------|-------------|
@@ -71,7 +71,7 @@ Build shared components first, then pages roughly in funnel order:
 | `buying-guides-hero-1.png`, `buying-guides-hero-2.png` | asset | Hero image assets |
 | `buying-guides-card-1.png` … `buying-guides-card-6.png` | asset | Six situation card images |
 
-### `design/blog-landing-page/` — 4 files
+### `ux-mockup/blog-landing-page/` — 4 files
 
 | File | Type | Description |
 |------|------|-------------|
@@ -79,14 +79,14 @@ Build shared components first, then pages roughly in funnel order:
 | `blog-landing-reference-1.png`, `blog-landing-reference-2.png` | reference | Section-level screenshots |
 | `blog-landing-hero.png` | asset | Hero image asset |
 
-### `design/blog-post-page/` — 3 files
+### `ux-mockup/blog-post-page/` — 3 files
 
 | File | Type | Description |
 |------|------|-------------|
 | `blog-post-reference-full.png` | reference | Full-page reference screenshot |
 | `blog-post-reference-1.png`, `blog-post-reference-2.png` | reference | Section-level screenshots |
 
-### `design/shared/` — 3 files
+### `ux-mockup/shared/` — 3 files
 
 | File | Type | Description |
 |------|------|-------------|

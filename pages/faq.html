@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Frequently Asked Questions — FindInsureWise</title>
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    .faq-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 520px;
+      background: var(--color-bg-section);
+    }
+    .faq-hero-left {
+      padding: 80px 56px 80px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .faq-hero-left h1 { font-size: 62px; line-height: 1.05; margin-bottom: 18px; max-width: 500px; }
+    .faq-hero-left .hero-body { font-size: 20px; line-height: 1.75; color: var(--color-text-2); max-width: 480px; margin-bottom: 28px; }
+    .faq-hero-right { overflow: hidden; }
+    .faq-hero-right img { width: 100%; height: 100%; object-fit: cover; }
+
+    .faq-main {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 80px 48px;
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .faq-category { margin-bottom: 56px; }
+    .faq-category-header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+    .faq-category-icon { font-size: 22px; }
+    .faq-category-title { font-family: var(--font-serif); font-size: 26px; font-weight: 600; color: var(--color-heading); }
+    .faq-category-intro { font-size: 15px; color: var(--color-text-2); margin-bottom: 20px; line-height: 1.65; }
+
+    .sidebar-topic-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid #f0f4f1;
+      font-size: 14px;
+      color: var(--color-text-2);
+      cursor: pointer;
+    }
+    .sidebar-topic-item:last-child { border-bottom: none; }
+    .sidebar-topic-item:hover { color: var(--color-heading); }
+    .sidebar-count { font-size: 12px; color: var(--color-text-3); background: var(--color-bg-section); padding: 2px 8px; border-radius: 999px; }
+
+    .popular-question { display: flex; align-items: flex-start; gap: 8px; padding: 10px 0; border-bottom: 1px solid #f0f4f1; font-size: 14px; color: var(--color-text-2); cursor: pointer; }
+    .popular-question:last-child { border-bottom: none; }
+    .popular-question:hover { color: var(--color-heading); }
+    .popular-question::before { content: '→'; color: var(--color-eyebrow); flex-shrink: 0; font-size: 13px; margin-top: 1px; }
+
+    .newsletter-section { max-width: var(--max-w); margin: 0 auto 88px; padding: 0 48px; }
+  </style>
+</head>
+<body>
+
+<!-- ── Header ── -->
+<header class="site-header">
+  <div class="container">
+    <a href="home.html" class="header-logo">
+      <div class="logo-icon">🛡</div>
+      FindInsureWise
+    </a>
+    <nav class="header-nav">
+      <a href="buying-guides.html">Term Life Insurance</a>
+      <a href="buying-guides.html">Living Benefits</a>
+      <a href="#">About Us</a>
+      <a href="blog-landing.html">Resources</a>
+    </nav>
+    <a href="home.html#quote" class="btn btn-gold btn-sm">Get a Free Quote →</a>
+  </div>
+</header>
+
+<!-- ── Hero ── -->
+<section class="faq-hero">
+  <div class="faq-hero-left">
+    <span class="eyebrow">FAQ</span>
+    <h1>Frequently Asked Questions</h1>
+    <p class="hero-body">Find answers to the most common questions about term life insurance and living benefits.</p>
+    <div class="search-bar" style="margin-bottom: 20px;">
+      <span class="search-icon">🔍</span>
+      <input type="text" placeholder="Search questions..." />
+    </div>
+    <div class="pills">
+      <button class="pill active">Term Life Basics</button>
+      <button class="pill">Living Benefits</button>
+      <button class="pill">Application</button>
+      <button class="pill">Coverage &amp; Cost</button>
+      <button class="pill">Policy Management</button>
+    </div>
+  </div>
+  <div class="faq-hero-right">
+    <img src="../ux-mockup/faq-page/assets/faq-hero.png" alt="Couple reviewing insurance options" />
+  </div>
+</section>
+
+<!-- ── Main FAQ + Sidebar ── -->
+<div class="faq-main">
+  <!-- Left: FAQ categories -->
+  <div>
+    <!-- Category A -->
+    <div class="faq-category" id="term-life-basics">
+      <div class="faq-category-header">
+        <span class="faq-category-icon">📄</span>
+        <div class="faq-category-title">About Term Life Insurance</div>
+      </div>
+      <p class="faq-category-intro">Learn how term life insurance works, how long it lasts, and who it's best for.</p>
+      <div class="accordion">
+        <details class="faq-item">
+          <summary>What is term life insurance?</summary>
+          <div class="faq-answer">Term life insurance is a type of life insurance that provides coverage for a specific period — typically 10, 20, or 30 years. If you pass away during the term, your beneficiaries receive the death benefit. It's generally more affordable than permanent life insurance.</div>
+        </details>
+        <details class="faq-item">
+          <summary>How does term life insurance work?</summary>
+          <div class="faq-answer">You pay regular premiums to keep the policy active. If you pass away while the policy is in force, the insurance company pays the death benefit to your named beneficiaries. The coverage ends when the term expires or if you stop paying premiums.</div>
+        </details>
+        <details class="faq-item">
+          <summary>How long does term life insurance last?</summary>
+          <div class="faq-answer">Terms typically range from 10 to 30 years. Common options are 10, 15, 20, and 30-year terms. The right length depends on your financial obligations — for example, how long until your mortgage is paid off or your children are financially independent.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Can I renew my term life insurance policy?</summary>
+          <div class="faq-answer">Many term policies include a renewal option, though premiums will likely increase significantly at renewal since you'll be older. A better strategy is often to purchase a longer term upfront or convert to a permanent policy before your term expires.</div>
+        </details>
+        <details class="faq-item">
+          <summary>What happens if I outlive my term life policy?</summary>
+          <div class="faq-answer">If your policy expires and you're still alive, coverage simply ends. You don't receive any payout. You can choose to renew, purchase a new policy, or go without coverage if your financial obligations have decreased.</div>
+        </details>
+      </div>
+    </div>
+
+    <!-- Category B -->
+    <div class="faq-category" id="living-benefits">
+      <div class="faq-category-header">
+        <span class="faq-category-icon">🌿</span>
+        <div class="faq-category-title">Living Benefits</div>
+      </div>
+      <p class="faq-category-intro">Understand how certain policies may provide access to benefits while you're alive.</p>
+      <div class="accordion">
+        <details class="faq-item">
+          <summary>What are living benefits?</summary>
+          <div class="faq-answer">Living benefits allow you to access a portion of your death benefit while you're still alive if you're diagnosed with a qualifying serious illness — including critical illness, chronic illness, or terminal illness. They're often included at no extra cost on select policies.</div>
+        </details>
+        <details class="faq-item">
+          <summary>How do living benefits work?</summary>
+          <div class="faq-answer">Upon a qualifying diagnosis, you can request an accelerated death benefit payment. The amount you receive reduces your remaining death benefit. The funds can typically be used for any purpose — medical bills, mortgage payments, everyday expenses.</div>
+        </details>
+        <details class="faq-item">
+          <summary>What illnesses may qualify?</summary>
+          <div class="faq-answer">Qualifying conditions vary by carrier but typically include heart attack, stroke, cancer, organ failure (critical illness), inability to perform daily activities (chronic illness), and terminal diagnosis with 12–24 months life expectancy.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Will using benefits reduce my death benefit?</summary>
+          <div class="faq-answer">Yes — any amount you access through living benefits will reduce the death benefit paid to your beneficiaries. Most policies allow you to access a percentage of the total benefit, not the full amount.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Do all policies include living benefits?</summary>
+          <div class="faq-answer">No. Living benefits must be included in the policy or added as a rider. We only work with carriers that offer robust living benefit options, and our advisors will ensure you understand exactly what's included in any policy we recommend.</div>
+        </details>
+      </div>
+    </div>
+
+    <!-- Category C -->
+    <div class="faq-category" id="application">
+      <div class="faq-category-header">
+        <span class="faq-category-icon">📋</span>
+        <div class="faq-category-title">Application &amp; Approval</div>
+      </div>
+      <p class="faq-category-intro">Everything you need to know about applying for coverage and what to expect.</p>
+      <div class="accordion">
+        <details class="faq-item">
+          <summary>How long does the application process take?</summary>
+          <div class="faq-answer">Some carriers offer same-day or next-day decisions with no medical exam. Traditional fully underwritten policies may take 4–8 weeks due to medical records requests and underwriting review.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Do I need a medical exam?</summary>
+          <div class="faq-answer">Not always. Many carriers now offer simplified issue or accelerated underwriting that uses data instead of a physical exam. Your age, coverage amount, and health history determine which path applies.</div>
+        </details>
+        <details class="faq-item">
+          <summary>What if I've had health issues in the past?</summary>
+          <div class="faq-answer">Past health issues don't automatically disqualify you. Different carriers view health history differently. Our advisors shop your case to find carriers most likely to approve you at competitive rates.</div>
+        </details>
+      </div>
+    </div>
+
+    <!-- Category D -->
+    <div class="faq-category" id="coverage-cost">
+      <div class="faq-category-header">
+        <span class="faq-category-icon">💰</span>
+        <div class="faq-category-title">Coverage &amp; Cost</div>
+      </div>
+      <p class="faq-category-intro">Understanding how much coverage you need and what affects your premium.</p>
+      <div class="accordion">
+        <details class="faq-item">
+          <summary>How much coverage do I need?</summary>
+          <div class="faq-answer">A common rule of thumb is 10–12× your annual income, but the right amount depends on your debts, dependents, income replacement needs, and future expenses like college tuition. Our coverage calculator can help you estimate.</div>
+        </details>
+        <details class="faq-item">
+          <summary>How much does term life insurance cost?</summary>
+          <div class="faq-answer">A healthy 30-year-old can often get $500,000 in coverage for $25–$40/month. Premiums depend on age, health, coverage amount, and term length. The best time to lock in low rates is when you're young and healthy.</div>
+        </details>
+      </div>
+    </div>
+
+    <!-- Category E -->
+    <div class="faq-category" id="policy-management" style="margin-bottom: 0;">
+      <div class="faq-category-header">
+        <span class="faq-category-icon">⚙️</span>
+        <div class="faq-category-title">Policy Management</div>
+      </div>
+      <p class="faq-category-intro">How to manage, update, or make changes to your coverage.</p>
+      <div class="accordion">
+        <details class="faq-item">
+          <summary>Can I change my coverage amount after purchasing?</summary>
+          <div class="faq-answer">Most term policies have fixed coverage amounts. To increase coverage, you'd typically need to apply for a new policy. Some carriers offer guaranteed insurability riders that allow changes without re-underwriting.</div>
+        </details>
+        <details class="faq-item">
+          <summary>What happens if I miss a premium payment?</summary>
+          <div class="faq-answer">Most policies include a grace period (usually 30 days) after a missed payment. If you don't pay within the grace period, the policy lapses. Some policies allow reinstatement if you act quickly and may require evidence of insurability.</div>
+        </details>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right: Sidebar -->
+  <div class="sidebar">
+    <!-- Browse by Topic -->
+    <div class="sidebar-card">
+      <div class="sidebar-title">Browse by Topic</div>
+      <div>
+        <a href="#term-life-basics" class="sidebar-topic-item" style="text-decoration:none;">Term Life Basics <span class="sidebar-count">12</span></a>
+        <a href="#living-benefits" class="sidebar-topic-item" style="text-decoration:none;">Living Benefits <span class="sidebar-count">10</span></a>
+        <a href="#application" class="sidebar-topic-item" style="text-decoration:none;">Application &amp; Approval <span class="sidebar-count">8</span></a>
+        <a href="#coverage-cost" class="sidebar-topic-item" style="text-decoration:none;">Coverage &amp; Cost <span class="sidebar-count">9</span></a>
+        <a href="#policy-management" class="sidebar-topic-item" style="text-decoration:none;">Policy Management <span class="sidebar-count">6</span></a>
+      </div>
+      <a href="#" class="card-link" style="margin-top: 14px;">View all topics →</a>
+    </div>
+
+    <!-- Soft CTA -->
+    <div class="sidebar-card" style="background: #f7faf6;">
+      <div class="sidebar-title">Still can't find what you're looking for?</div>
+      <p style="font-size:14px; color:var(--color-text-2); line-height:1.65; margin-bottom:16px;">Speak with a licensed advisor for personalized guidance — no pressure, just answers.</p>
+      <a href="contact.html" class="btn btn-action" style="width:100%;">Get Help →</a>
+    </div>
+
+    <!-- Popular Questions -->
+    <div class="sidebar-card">
+      <div class="sidebar-title">Popular Questions This Week</div>
+      <div>
+        <a href="#term-life-basics" class="popular-question" style="text-decoration:none;">Is term life insurance worth it at 35?</a>
+        <a href="#living-benefits" class="popular-question" style="text-decoration:none;">Can I use living benefits for cancer?</a>
+        <a href="#coverage-cost" class="popular-question" style="text-decoration:none;">How much coverage do I really need?</a>
+        <a href="#policy-management" class="popular-question" style="text-decoration:none;">What happens if I miss a payment?</a>
+        <a href="#term-life-basics" class="popular-question" style="text-decoration:none;">Can I convert my term policy later?</a>
+      </div>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="sidebar-card">
+      <div class="sidebar-title">Stay informed</div>
+      <p style="font-size:14px; color:var(--color-text-2); margin-bottom:14px; line-height:1.65;">Tips, guides, and resources straight to your inbox.</p>
+      <input class="form-input" type="email" placeholder="Email address" style="margin-bottom:10px;" />
+      <button class="btn btn-action" style="width:100%;">Subscribe</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── Newsletter Band ── -->
+<div class="newsletter-section">
+  <div class="newsletter-band">
+    <div class="newsletter-icon">✉️</div>
+    <div class="newsletter-copy">
+      <strong>Get expert tips &amp; guides in your inbox</strong>
+      <span>Join thousands of families making smarter insurance decisions.</span>
+    </div>
+    <div class="newsletter-form">
+      <input type="email" placeholder="Email address" />
+      <button class="btn btn-action btn-sm">Subscribe</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── Footer ── -->
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <div class="footer-brand-name">FindInsureWise</div>
+      <p class="footer-tagline">Simple. Honest.<br />Protection for what matters most.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <div class="footer-links">
+        <a href="#">About Us</a><a href="#">How It Works</a><a href="contact.html">Contact Us</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Resources</div>
+      <div class="footer-links">
+        <a href="blog-landing.html">Blog</a><a href="buying-guides.html">Guides</a><a href="faq.html">FAQ</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Legal</div>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a><a href="#">Terms of Use</a><a href="#">Licensing</a>
+      </div>
+    </div>
+    <div><a href="home.html#quote" class="btn btn-outline-gold btn-sm">Get a Free Quote →</a></div>
+  </div>
+  <div class="container"><div class="footer-bottom">© 2026 FindInsureWise. All rights reserved.</div></div>
+</footer>
+
+</body>
+</html>

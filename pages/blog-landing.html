@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Insurance Guides — FindInsureWise</title>
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    .blog-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 480px;
+      background: var(--color-bg-section);
+    }
+    .blog-hero-left {
+      padding: 80px 56px 80px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .blog-hero-left h1 { font-size: 58px; line-height: 1.05; margin-bottom: 18px; max-width: 480px; }
+    .blog-hero-left .hero-body { font-size: 19px; line-height: 1.75; color: var(--color-text-2); max-width: 460px; margin-bottom: 28px; }
+    .blog-hero-right { overflow: hidden; }
+    .blog-hero-right img { width: 100%; height: 100%; object-fit: cover; }
+
+    .filter-bar {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 32px 48px;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .blog-main {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 56px 48px;
+    }
+
+    /* Featured row */
+    .featured-row {
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 32px;
+      margin-bottom: 72px;
+      align-items: start;
+    }
+    .featured-card {
+      background: #fff;
+      border: 1px solid var(--color-border);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+    }
+    .featured-label {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--color-gold);
+      background: var(--color-gold-bg); border-bottom: 1px solid var(--color-gold-border);
+      padding: 10px 24px;
+    }
+    .featured-inner { display: grid; grid-template-columns: 1fr 1fr; }
+    .featured-img { width: 100%; height: 100%; min-height: 280px; object-fit: cover; background: var(--color-bg-section); }
+    .featured-content { padding: 32px; display: flex; flex-direction: column; justify-content: center; }
+    .featured-cat { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-eyebrow); margin-bottom: 10px; }
+    .featured-title { font-family: var(--font-serif); font-size: 24px; font-weight: 600; color: var(--color-heading); line-height: 1.3; margin-bottom: 12px; }
+    .featured-desc { font-size: 15px; color: var(--color-text-2); line-height: 1.7; margin-bottom: 16px; }
+    .featured-meta { font-size: 13px; color: var(--color-text-3); margin-bottom: 20px; }
+    .featured-link { font-size: 14px; font-weight: 700; color: var(--color-eyebrow); }
+    .featured-link:hover { text-decoration: underline; }
+
+    /* Popular topics sidebar */
+    .topic-list { display: flex; flex-direction: column; }
+    .topic-item {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 11px 0; border-bottom: 1px solid #f0f4f1;
+      font-size: 14px; color: var(--color-text-2); cursor: pointer;
+    }
+    .topic-item:last-child { border-bottom: none; }
+    .topic-item:hover { color: var(--color-heading); }
+    .topic-count {
+      font-size: 12px; color: var(--color-text-3);
+      background: var(--color-bg-section);
+      padding: 2px 8px; border-radius: 999px;
+    }
+
+    /* Article grid */
+    .articles-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px; }
+    .articles-title { font-family: var(--font-serif); font-size: 34px; font-weight: 600; color: var(--color-heading); }
+
+    .view-all-wrap { text-align: center; margin-top: 48px; }
+
+    .newsletter-section { max-width: var(--max-w); margin: 0 auto 88px; padding: 0 48px; }
+  </style>
+</head>
+<body>
+
+<!-- ── Header ── -->
+<header class="site-header">
+  <div class="container">
+    <a href="home.html" class="header-logo">
+      <div class="logo-icon">🛡</div>
+      FindInsureWise
+    </a>
+    <nav class="header-nav">
+      <a href="buying-guides.html">Term Life Insurance</a>
+      <a href="buying-guides.html">Living Benefits</a>
+      <a href="#">About Us</a>
+      <a href="blog-landing.html">Resources</a>
+    </nav>
+    <a href="home.html#quote" class="btn btn-gold btn-sm">Get a Free Quote →</a>
+  </div>
+</header>
+
+<!-- ── Hero ── -->
+<section class="blog-hero">
+  <div class="blog-hero-left">
+    <span class="eyebrow">Insurance Guides</span>
+    <h1>Clear Guides for Smarter Coverage Decisions</h1>
+    <p class="hero-body">Straightforward advice on term life, living benefits, pricing, and how to protect what matters most.</p>
+    <div class="search-bar">
+      <span class="search-icon">🔍</span>
+      <input type="text" placeholder="Search articles..." />
+    </div>
+  </div>
+  <div class="blog-hero-right">
+    <img src="../ux-mockup/blog-landing-page/assets/blog-landing-hero.png" alt="Couple reviewing insurance options" />
+  </div>
+</section>
+
+<!-- ── Filter Bar ── -->
+<div class="filter-bar">
+  <div class="pills">
+    <button class="pill active">All Articles</button>
+    <button class="pill">Term Life Basics</button>
+    <button class="pill">Living Benefits</button>
+    <button class="pill">For Parents</button>
+    <button class="pill">Pricing &amp; Costs</button>
+    <button class="pill">Health &amp; Medical</button>
+  </div>
+</div>
+
+<!-- ── Main ── -->
+<div class="blog-main">
+
+  <!-- Featured Row -->
+  <div class="featured-row">
+    <!-- Featured Article Card -->
+    <div class="featured-card">
+      <div class="featured-label">Featured Article</div>
+      <div class="featured-inner">
+        <div style="background: var(--color-bg-section); min-height: 280px;"></div>
+        <div class="featured-content">
+          <div class="featured-cat">Living Benefits</div>
+          <div class="featured-title">Can Term Life Insurance Pay While You're Alive?</div>
+          <div class="featured-desc">Living benefits can help you access your life insurance money when you need it most. Here's how it works.</div>
+          <div class="featured-meta">Jeff Lin &middot; May 12, 2026 &middot; 6 min read</div>
+          <a href="blog-post.html" class="featured-link">Read article →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar" style="position: static; top: auto;">
+      <!-- Popular Topics -->
+      <div class="sidebar-card">
+        <div class="sidebar-title">Popular Topics</div>
+        <div class="topic-list">
+          <div class="topic-item">Term Life Basics <span class="topic-count">24</span></div>
+          <div class="topic-item">Living Benefits <span class="topic-count">18</span></div>
+          <div class="topic-item">For Parents <span class="topic-count">16</span></div>
+          <div class="topic-item">Pricing &amp; Costs <span class="topic-count">12</span></div>
+          <div class="topic-item">Health &amp; Medical <span class="topic-count">9</span></div>
+        </div>
+        <a href="#" class="card-link" style="margin-top: 14px;">View all topics →</a>
+      </div>
+
+      <!-- Conversion CTA -->
+      <div class="sidebar-card" style="background: #f7faf6;">
+        <div class="sidebar-title">Need help choosing coverage?</div>
+        <p style="font-size: 14px; color: var(--color-text-2); line-height: 1.65; margin-bottom: 16px;">Our licensed experts can help you find the right protection for your family and budget.</p>
+        <a href="home.html#quote" class="btn btn-action" style="width: 100%;">Compare My Options →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Latest Guides -->
+  <div class="articles-header">
+    <div class="articles-title">Latest Guides</div>
+  </div>
+
+  <div class="card-grid-3">
+    <!-- Article 1 -->
+    <a href="blog-post.html" class="article-card" style="display: block; color: inherit; text-decoration: none;">
+      <div class="article-thumb"></div>
+      <div class="article-body">
+        <span class="article-category">For Parents</span>
+        <div class="article-title">How Much Life Insurance Does a Young Family Need?</div>
+        <div class="article-desc">A simple guide to figuring out the right coverage for your growing family.</div>
+        <div class="article-meta">
+          <div class="article-meta-avatar">JL</div>
+          Jeff Lin &middot; Apr 28, 2026 &middot; 5 min read
+        </div>
+      </div>
+    </a>
+
+    <!-- Article 2 -->
+    <a href="blog-post.html" class="article-card" style="display: block; color: inherit; text-decoration: none;">
+      <div class="article-thumb"></div>
+      <div class="article-body">
+        <span class="article-category">Pricing &amp; Costs</span>
+        <div class="article-title">How Much Does Term Life Insurance Cost in 2026?</div>
+        <div class="article-desc">Real numbers and what factors affect your monthly premium.</div>
+        <div class="article-meta">
+          <div class="article-meta-avatar">JL</div>
+          Jeff Lin &middot; Apr 21, 2026 &middot; 7 min read
+        </div>
+      </div>
+    </a>
+
+    <!-- Article 3 -->
+    <a href="blog-post.html" class="article-card" style="display: block; color: inherit; text-decoration: none;">
+      <div class="article-thumb"></div>
+      <div class="article-body">
+        <span class="article-category">Term Life Basics</span>
+        <div class="article-title">20 Term Life Insurance Myths That Aren't True</div>
+        <div class="article-desc">We bust the most common misconceptions so you can make a confident decision.</div>
+        <div class="article-meta">
+          <div class="article-meta-avatar">JL</div>
+          Jeff Lin &middot; Apr 14, 2026 &middot; 9 min read
+        </div>
+      </div>
+    </a>
+
+    <!-- Article 4 -->
+    <a href="blog-post.html" class="article-card" style="display: block; color: inherit; text-decoration: none;">
+      <div class="article-thumb"></div>
+      <div class="article-body">
+        <span class="article-category">Health &amp; Medical</span>
+        <div class="article-title">Do You Need a Medical Exam for Term Life Insurance?</div>
+        <div class="article-desc">Many carriers now offer no-exam options. Here's how to know which path is right for you.</div>
+        <div class="article-meta">
+          <div class="article-meta-avatar">JL</div>
+          Jeff Lin &middot; Apr 7, 2026 &middot; 4 min read
+        </div>
+      </div>
+    </a>
+
+    <!-- Article 5 -->
+    <a href="blog-post.html" class="article-card" style="display: block; color: inherit; text-decoration: none;">
+      <div class="article-thumb"></div>
+      <div class="article-body">
+        <span class="article-category">Living Benefits</span>
+        <div class="article-title">Living Benefits vs. Critical Illness Insurance</div>
+        <div class="article-desc">Two ways to protect yourself from serious illness — here's what's different.</div>
+        <div class="article-meta">
+          <div class="article-meta-avatar">JL</div>
+          Jeff Lin &middot; Mar 31, 2026 &middot; 6 min read
+        </div>
+      </div>
+    </a>
+
+    <!-- Article 6 -->
+    <a href="blog-post.html" class="article-card" style="display: block; color: inherit; text-decoration: none;">
+      <div class="article-thumb"></div>
+      <div class="article-body">
+        <span class="article-category">For Parents</span>
+        <div class="article-title">Life Insurance for Stay-at-Home Parents</div>
+        <div class="article-desc">Why the income-earner isn't the only one who needs coverage in your household.</div>
+        <div class="article-meta">
+          <div class="article-meta-avatar">JL</div>
+          Jeff Lin &middot; Mar 24, 2026 &middot; 5 min read
+        </div>
+      </div>
+    </a>
+  </div>
+
+  <!-- View All CTA -->
+  <div class="view-all-wrap">
+    <a href="#" class="btn btn-outline-green">View all articles →</a>
+  </div>
+</div>
+
+<!-- ── Newsletter ── -->
+<div class="newsletter-section">
+  <div class="newsletter-band">
+    <div class="newsletter-icon">✉️</div>
+    <div class="newsletter-copy">
+      <strong>Get expert tips &amp; guides in your inbox</strong>
+      <span>Join thousands of families making smarter insurance decisions.</span>
+    </div>
+    <div class="newsletter-form">
+      <input type="email" placeholder="Email address" />
+      <button class="btn btn-action btn-sm">Subscribe</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── Footer ── -->
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <div class="footer-brand-name">FindInsureWise</div>
+      <p class="footer-tagline">Simple. Honest.<br />Protection for what matters most.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <div class="footer-links">
+        <a href="#">About Us</a><a href="#">How It Works</a><a href="contact.html">Contact Us</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Resources</div>
+      <div class="footer-links">
+        <a href="blog-landing.html">Blog</a><a href="buying-guides.html">Guides</a><a href="faq.html">FAQ</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Legal</div>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a><a href="#">Terms of Use</a><a href="#">Licensing</a>
+      </div>
+    </div>
+    <div><a href="home.html#quote" class="btn btn-outline-gold btn-sm">Get a Free Quote →</a></div>
+  </div>
+  <div class="container"><div class="footer-bottom">© 2026 FindInsureWise. All rights reserved.</div></div>
+</footer>
+
+</body>
+</html>

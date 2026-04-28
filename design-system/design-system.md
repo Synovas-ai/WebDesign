@@ -1,6 +1,6 @@
 # FindInsureWise Design System
 
-Derived from `docs/specs/home.md` and `docs/specs/home-mobile.md`. All tokens apply site-wide.
+Derived from `specs/home.md`, `specs/home-mobile.md`, and visual QA against `ux-mockup/home-page/home-reference-full.png` and `ux-mockup/blog-landing-page/blog-landing-reference-full.png`. All tokens apply site-wide.
 
 ---
 
@@ -10,26 +10,28 @@ Derived from `docs/specs/home.md` and `docs/specs/home-mobile.md`. All tokens ap
 
 | Token | Hex | Usage |
 |-------|-----|-------|
-| `--color-heading` | `#123d2a` | H1, H2, display text |
-| `--color-footer-bg` | `#0f3a25` | Footer + final CTA background |
-| `--color-action` | `#0e5b37` | Dark action buttons (Contact Us, Subscribe) |
-| `--color-eyebrow` | `#1f7a45` | Eyebrow labels, inline links |
-| `--color-accent` | `#27500a` | Check icons, active states |
+| `--color-heading` | `#1b2c20` | H1, H2, display text — very dark forest green |
+| `--color-footer-bg` | `#0d1f13` | Footer + final CTA background — near-black green |
+| `--color-action` | `#2c5f3a` | Secondary action buttons (Subscribe, outlined) |
+| `--color-eyebrow` | `#3d6e42` | Eyebrow labels — muted olive-green |
+| `--color-accent` | `#3a6b3e` | Trust bullet check circles, active nav states |
 
 ### Gold
 
 | Token | Hex | Usage |
 |-------|-----|-------|
-| `--color-gold` | `#c98a1e` | Primary CTA buttons |
-| `--color-gold-hover` | `#b07618` | Primary CTA hover state |
-| `--color-gold-bg` | `#fef6e7` | TL;DR callout background |
-| `--color-gold-border` | `#e8c98b` | TL;DR callout border |
+| `--color-gold` | `#cf9010` | Primary CTA buttons (nav + hero) — warm amber |
+| `--color-gold-hover` | `#b07a08` | Primary CTA hover state |
+| `--color-gold-text` | `#cf9010` | H1 accent line ("While You're Alive") |
+| `--color-gold-bg` | `#fef6e7` | Callout / highlight background |
+| `--color-gold-border` | `#e8c98b` | Callout border |
 
 ### Neutrals
 
 | Token | Hex | Usage |
 |-------|-----|-------|
-| `--color-bg-page` | `#f6f8f5` | Page / section background |
+| `--color-bg-page` | `#ffffff` | Primary page + hero background — white |
+| `--color-bg-section` | `#f5f7f4` | Subtle alternating section background |
 | `--color-bg-card` | `#ffffff` | Cards, inputs |
 | `--color-border` | `#d8e2d4` | Card borders, dividers, header bottom |
 | `--color-text-1` | `#2c3b2a` | Primary body text |
@@ -49,7 +51,7 @@ Derived from `docs/specs/home.md` and `docs/specs/home-mobile.md`. All tokens ap
 
 | Element | Desktop | Mobile | Properties |
 |---------|---------|--------|------------|
-| H1 | 64–72px | 40px | `font-family: serif; font-weight: 600; line-height: 1.08; color: var(--color-heading)` |
+| H1 | 64–72px | 40px | `font-family: serif; font-weight: 600; line-height: 1.08; color: var(--color-heading)` — final emphasis line uses `var(--color-gold)` |
 | H2 | 40–54px | 32px | `font-family: serif; font-weight: 600; line-height: 1.08` |
 | H3 | 28–32px | 24px | `font-family: serif; font-weight: 600; line-height: 1.2` |
 | Eyebrow | 12–16px | 12px | `font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-eyebrow)` |
@@ -74,9 +76,10 @@ Derived from `docs/specs/home.md` and `docs/specs/home-mobile.md`. All tokens ap
 ## Buttons
 
 ### Primary — Gold CTA
+Used in: nav header, hero, FAQ support card, final CTA form, all main conversion actions.
 
 ```css
-background: #c98a1e;
+background: #cf9010;
 color: #ffffff;
 height: 54–58px;
 border-radius: 12px;
@@ -86,7 +89,7 @@ padding: 0 28px;
 transition: background 0.2s ease, transform 0.2s ease;
 
 /* hover */
-background: #b07618;
+background: #b07a08;
 transform: translateY(-1px);
 
 /* mobile: full width */
@@ -95,20 +98,22 @@ min-height: 56px;
 ```
 
 ### Secondary — Green Outline
+Used in: calculator CTA, secondary page actions.
 
 ```css
 background: transparent;
-border: 1.5px solid #0e5b37;
-color: #0e5b37;
+border: 1.5px solid #2c5f3a;
+color: #2c5f3a;
 height: 48–54px;
 border-radius: 10–12px;
 font-weight: 600;
 ```
 
-### Dark Action — Solid Green
+### Utility — Solid Green
+Used in: newsletter Subscribe button, minor utility actions.
 
 ```css
-background: #0e5b37;
+background: #2c5f3a;
 color: #ffffff;
 height: 48–54px;
 border-radius: 12px;
@@ -119,8 +124,8 @@ font-weight: 600;
 
 ```css
 background: transparent;
-border: 1.5px solid #c98a1e;
-color: #c98a1e;
+border: 1.5px solid #cf9010;
+color: #cf9010;
 border-radius: 12px;
 font-weight: 600;
 ```
@@ -234,7 +239,7 @@ Structure: logo left — nav center — gold CTA right (desktop). Logo + CTA + h
 ## Footer
 
 ```css
-background: #0f3a25;               /* or gradient: linear-gradient(135deg, #041f17, #0a3527, #0e4a35) */
+background: #0d1f13;               /* near-black forest green */
 color: #ffffff;
 padding: 64px 48px;                /* desktop */
 padding: 32px 20px 40px;           /* mobile */
@@ -249,7 +254,7 @@ Structure: 4 columns — Brand + tagline, Company links, Resources links, Legal 
 | Breakpoint | Behavior |
 |-----------|---------|
 | `< 1100px` (tablet) | Multi-column grids → 1–2 columns; sidebar moves below content |
-| `< 768px` (mobile) | Full single column; hero image becomes full-bleed background with dark green overlay; all buttons full-width; Final CTA and Footer share `#0f3a25` background and visually merge |
+| `< 768px` (mobile) | Full single column; hero image becomes full-bleed background with dark green overlay; all buttons full-width; Final CTA and Footer share `#0d1f13` background and visually merge |
 
 ---
 

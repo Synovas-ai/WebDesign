@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buying Guides — FindInsureWise</title>
+  <link rel="stylesheet" href="shared.css" />
+  <style>
+    .guides-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 520px;
+      background: var(--color-bg-section);
+    }
+    .guides-hero-left {
+      padding: 80px 56px 80px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .guides-hero-left h1 { font-size: 62px; line-height: 1.05; margin-bottom: 18px; max-width: 500px; }
+    .guides-hero-left .hero-body { font-size: 20px; line-height: 1.75; color: var(--color-text-2); max-width: 460px; margin-bottom: 28px; }
+    .guides-hero-right { overflow: hidden; }
+    .guides-hero-right img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* Situation cards */
+    .situation-section {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 64px 48px 72px;
+    }
+    .situation-section .section-title { margin-bottom: 8px; }
+
+    /* Comparison section */
+    .comparison-section {
+      max-width: var(--max-w);
+      margin: 0 auto 32px;
+      padding: 0 48px;
+    }
+    .comparison-wrap {
+      background: var(--color-bg-section);
+      border: 1px solid var(--color-border);
+      border-radius: 22px;
+      padding: 44px;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .comparison-left-eyebrow { font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-eyebrow); margin-bottom: 14px; }
+    .comparison-left h2 { font-size: 30px; line-height: 1.2; margin-bottom: 14px; }
+    .comparison-left p { font-size: 15px; color: var(--color-text-2); line-height: 1.7; }
+
+    .comparison-footer-note {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 13px; color: var(--color-text-3);
+      padding-top: 14px; border-top: 1px solid #f0f4f1; margin-top: 4px;
+    }
+
+    /* Calculator strip */
+    .calc-strip {
+      max-width: var(--max-w);
+      margin: 0 auto 28px;
+      padding: 0 48px;
+    }
+    .calc-strip-inner {
+      background: #fff;
+      border: 1px solid var(--color-border);
+      border-radius: 18px;
+      padding: 28px 36px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 24px;
+      align-items: center;
+    }
+    .calc-icon { font-size: 32px; }
+    .calc-headline { font-size: 18px; font-weight: 700; color: var(--color-heading); margin-bottom: 4px; }
+    .calc-copy { font-size: 14px; color: var(--color-text-2); }
+
+    /* Quote CTA band */
+    .quote-band-wrap {
+      max-width: var(--max-w);
+      margin: 0 auto 64px;
+      padding: 0 48px;
+    }
+    .quote-band-inner {
+      background: linear-gradient(135deg, #041f17 0%, #0a3527 45%, #0e4a35 100%);
+      border-radius: 18px;
+      padding: 36px 44px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 28px;
+      align-items: center;
+      color: #fff;
+    }
+    .quote-band-icon { font-size: 36px; }
+    .quote-band-headline { font-family: var(--font-serif); font-size: 26px; color: #fff; margin-bottom: 6px; }
+    .quote-band-copy { font-size: 15px; color: rgba(255,255,255,0.65); }
+    .quote-band-right { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+    .quote-band-trust { font-size: 12px; color: rgba(255,255,255,0.45); display: flex; align-items: center; gap: 5px; }
+
+    .newsletter-section { max-width: var(--max-w); margin: 0 auto 88px; padding: 0 48px; }
+  </style>
+</head>
+<body>
+
+<!-- ── Header ── -->
+<header class="site-header">
+  <div class="container">
+    <a href="home.html" class="header-logo">
+      <div class="logo-icon">🛡</div>
+      FindInsureWise
+    </a>
+    <nav class="header-nav">
+      <a href="buying-guides.html">Term Life Insurance</a>
+      <a href="buying-guides.html">Living Benefits</a>
+      <a href="#">About Us</a>
+      <a href="blog-landing.html">Resources</a>
+    </nav>
+    <a href="home.html#quote" class="btn btn-gold btn-sm">Get a Free Quote →</a>
+  </div>
+</header>
+
+<!-- ── Hero ── -->
+<section class="guides-hero">
+  <div class="guides-hero-left">
+    <span class="eyebrow">Buying Guides</span>
+    <h1>Find the Right Coverage for Your Life</h1>
+    <p class="hero-body">Smart, easy-to-follow guides built around real life decisions — not insurance jargon.</p>
+    <div class="search-bar">
+      <span class="search-icon">🔍</span>
+      <input type="text" placeholder="What would you like help with?" />
+    </div>
+  </div>
+  <div class="guides-hero-right">
+    <img src="../ux-mockup/buying-guides-page/assets/buying-guides-hero-1.png" alt="Family at golden hour" />
+  </div>
+</section>
+
+<!-- ── Situation Cards ── -->
+<section class="situation-section">
+  <div class="section-header">
+    <h2 class="section-title">What best describes you right now?</h2>
+    <p class="section-sub">Choose a situation to find the most relevant guides for you.</p>
+  </div>
+
+  <div class="card-grid-3">
+    <!-- Card 1 -->
+    <div class="img-card">
+      <img class="img-card-photo" src="../ux-mockup/buying-guides-page/assets/buying-guides-card-1.png" alt="Young parents with newborn" />
+      <div class="img-card-body">
+        <div class="img-card-icon">👶</div>
+        <div class="img-card-title" style="margin-top: 32px;">We just had a baby</div>
+        <div class="img-card-desc">Protect income, future expenses, and peace of mind.</div>
+        <div class="img-card-arrow">Explore guides →</div>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="img-card">
+      <img class="img-card-photo" src="../ux-mockup/buying-guides-page/assets/buying-guides-card-2.png" alt="Family home" />
+      <div class="img-card-body">
+        <div class="img-card-icon">🏡</div>
+        <div class="img-card-title" style="margin-top: 32px;">We bought a home</div>
+        <div class="img-card-desc">Coverage ideas for mortgage and family protection.</div>
+        <div class="img-card-arrow">Explore guides →</div>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="img-card">
+      <img class="img-card-photo" src="../ux-mockup/buying-guides-page/assets/buying-guides-card-3.png" alt="Professional at work" />
+      <div class="img-card-body">
+        <div class="img-card-icon">💼</div>
+        <div class="img-card-title" style="margin-top: 32px;">I rely on work benefits</div>
+        <div class="img-card-desc">Is group term life insurance enough?</div>
+        <div class="img-card-arrow">Explore guides →</div>
+      </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="img-card">
+      <img class="img-card-photo" src="../ux-mockup/buying-guides-page/assets/buying-guides-card-4.png" alt="Young woman outdoors" />
+      <div class="img-card-body">
+        <div class="img-card-icon">💰</div>
+        <div class="img-card-title" style="margin-top: 32px;">I want affordable coverage</div>
+        <div class="img-card-desc">See what protection may cost at your age.</div>
+        <div class="img-card-arrow">Explore guides →</div>
+      </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="img-card">
+      <img class="img-card-photo" src="../ux-mockup/buying-guides-page/assets/buying-guides-card-5.png" alt="Couple reviewing papers" />
+      <div class="img-card-body">
+        <div class="img-card-icon">🌿</div>
+        <div class="img-card-title" style="margin-top: 32px;">I want benefits while alive</div>
+        <div class="img-card-desc">Learn why living benefits matter.</div>
+        <div class="img-card-arrow">Explore guides →</div>
+      </div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="img-card">
+      <img class="img-card-photo" src="../ux-mockup/buying-guides-page/assets/buying-guides-card-6.png" alt="Thoughtful person outdoors" />
+      <div class="img-card-body">
+        <div class="img-card-icon">🧭</div>
+        <div class="img-card-title" style="margin-top: 32px;">I'm not sure where to start</div>
+        <div class="img-card-desc">Start with our beginner buying guide.</div>
+        <div class="img-card-arrow">Explore guides →</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Comparison Section ── -->
+<div class="comparison-section">
+  <div class="comparison-wrap">
+    <div class="comparison-left">
+      <div class="comparison-left-eyebrow">The FindInsureWise Difference</div>
+      <h2>What smart buyers compare before choosing coverage.</h2>
+      <p>The lowest price isn't always the best fit. Here's how the options stack up.</p>
+    </div>
+    <div>
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th style="text-align: left; font-size: 13px; color: var(--color-text-2); font-weight: 400; padding-bottom: 16px;"></th>
+            <th class="col-highlight">With Living Benefits</th>
+            <th style="font-size: 13px; color: var(--color-text-2); font-weight: 600; padding: 14px 18px; text-align: center;">Traditional Term</th>
+            <th style="font-size: 13px; color: var(--color-text-2); font-weight: 600; padding: 14px 18px; text-align: center;">Group Term (Work)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Pays your family if you pass away</td>
+            <td class="col-highlight"><span class="check-icon">✓</span></td>
+            <td class="col-other"><span class="check-icon">✓</span></td>
+            <td class="col-other"><span class="check-icon">✓</span></td>
+          </tr>
+          <tr>
+            <td>May provide access after critical illness</td>
+            <td class="col-highlight"><span class="check-icon">✓</span></td>
+            <td class="col-other"><span class="dash">—</span></td>
+            <td class="col-other"><span class="dash">—</span></td>
+          </tr>
+          <tr>
+            <td>May help if chronic illness affects daily living</td>
+            <td class="col-highlight"><span class="check-icon">✓</span></td>
+            <td class="col-other"><span class="dash">—</span></td>
+            <td class="col-other"><span class="dash">—</span></td>
+          </tr>
+          <tr>
+            <td>Helps during life, not only after death</td>
+            <td class="col-highlight"><span class="check-icon">✓</span></td>
+            <td class="col-other"><span class="dash">—</span></td>
+            <td class="col-other"><span class="dash">—</span></td>
+          </tr>
+          <tr>
+            <td>Portable if you change jobs</td>
+            <td class="col-highlight"><span class="check-icon">✓</span></td>
+            <td class="col-other"><span class="check-icon">✓</span></td>
+            <td class="col-other"><span class="dash">—</span></td>
+          </tr>
+          <tr>
+            <td>Coverage amount you can choose</td>
+            <td class="col-highlight"><span class="check-icon">✓</span></td>
+            <td class="col-other"><span class="check-icon">✓</span></td>
+            <td class="col-other"><span class="dash">—</span></td>
+          </tr>
+          <tr>
+            <td>Easy, no-obligation online quote</td>
+            <td class="col-highlight"><span class="check-icon">✓</span></td>
+            <td class="col-other"><span class="check-icon">✓</span></td>
+            <td class="col-other"><span class="dash">—</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="comparison-footer-note">
+        <span>🛡</span>
+        Many families use Group Term as a supplement — not their only coverage.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Calculator Strip ── -->
+<div class="calc-strip">
+  <div class="calc-strip-inner">
+    <div class="calc-icon">🧮</div>
+    <div>
+      <div class="calc-headline">Not sure how much coverage to consider?</div>
+      <div class="calc-copy">Use our free calculator to get a personalized estimate in minutes.</div>
+    </div>
+    <a href="home.html#quote" class="btn btn-outline-green">Use Coverage Calculator →</a>
+  </div>
+</div>
+
+<!-- ── Quote CTA Band ── -->
+<div class="quote-band-wrap">
+  <div class="quote-band-inner">
+    <div class="quote-band-icon">🛡</div>
+    <div>
+      <div class="quote-band-headline">Ready to explore your options?</div>
+      <div class="quote-band-copy">Get a fast, no-obligation quote in minutes.</div>
+    </div>
+    <div class="quote-band-right">
+      <a href="home.html#quote" class="btn btn-gold">Get My Free Quote →</a>
+      <div class="quote-band-trust">🔒 Secure. Private. No spam.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Newsletter ── -->
+<div class="newsletter-section">
+  <div class="newsletter-band">
+    <div class="newsletter-icon">✉️</div>
+    <div class="newsletter-copy">
+      <strong>Get expert tips &amp; guides in your inbox</strong>
+      <span>Join thousands of families making smarter insurance decisions.</span>
+    </div>
+    <div class="newsletter-form">
+      <input type="email" placeholder="Email address" />
+      <button class="btn btn-action btn-sm">Subscribe</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── Footer ── -->
+<footer class="site-footer">
+  <div class="container">
+    <div>
+      <div class="footer-brand-name">FindInsureWise</div>
+      <p class="footer-tagline">Simple. Honest.<br />Protection for what matters most.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <div class="footer-links">
+        <a href="#">About Us</a><a href="#">How It Works</a><a href="contact.html">Contact Us</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Resources</div>
+      <div class="footer-links">
+        <a href="blog-landing.html">Blog</a><a href="buying-guides.html">Guides</a><a href="faq.html">FAQ</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-title">Legal</div>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a><a href="#">Terms of Use</a><a href="#">Licensing</a>
+      </div>
+    </div>
+    <div><a href="home.html#quote" class="btn btn-outline-gold btn-sm">Get a Free Quote →</a></div>
+  </div>
+  <div class="container"><div class="footer-bottom">© 2026 FindInsureWise. All rights reserved.</div></div>
+</footer>
+
+</body>
+</html>
